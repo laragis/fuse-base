@@ -1,0 +1,63 @@
+{
+  "name": "@ttungbmt/fuse-base",
+  "version": "0.0.1",
+  "description": "Fuse Base for Fuse React Admin",
+  "keywords": [
+    "redux",
+    "form"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laragis/fuse-base.git"
+  },
+  "author": "Truong Thanh Tung <ttungbmt@gmail.com>",
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.js",
+    "./dist/index.css": "./dist/index.css"
+  },
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "size": "size-limit",
+    "clean": "rimraf dist",
+    "build": "microbundle --jsx React.createElement",
+    "watch": "microbundle watch --jsx React.createElement",
+    "prebuild": "npm run clean",
+    "preversion": "npm run build",
+    "postversion": "git push --follow-tags"
+  },
+  "dependencies": {
+    "@mui/material": "^5.10.3",
+    "@mui/system": "^5.10.3",
+    "@tippyjs/react": "^4.2.6",
+    "clsx": "^1.2.1",
+    "lodash": "^4.17.21",
+    "prop-types": "15.8.1",
+    "tippy.js": "^6.3.7"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.0.1",
+    "microbundle": "^0.15.1",
+    "path": "^0.12.7",
+    "rimraf": "^3.0.2",
+    "size-limit": "^8.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17 || ^18"
+  },
+  "size-limit": [
+    {
+      "limit": "4 kB",
+      "path": "dist/index.js"
+    }
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
