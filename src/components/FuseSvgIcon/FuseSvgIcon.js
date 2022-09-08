@@ -76,7 +76,7 @@ FuseSvgIcon.defaultProps = {
   color: 'inherit',
 };
 
-function MySvgIcon({ children, className, ...props }){
+function MySvgIcon({ children, className, size, ...props }){
   let customProps = { children }
 
   if(children && includes(children, 'fontawesome-')){
@@ -85,13 +85,21 @@ function MySvgIcon({ children, className, ...props }){
     customProps.className = replace(children, 'fontawesome-', 'fa-')
     customProps.className = replace(customProps.className, ':', ' fa-')
     customProps.className = ['w-inherit', customProps.className, className].join(' ')
+
+    if(size) customProps.sx = {
+      width: size,
+      height: size,
+      minWidth: size,
+      minHeight: size,
+      fontSize: size,
+    }
   }
 
   if(className && some(['fa-solid', 'fa-regular', 'fa-light', 'fa-thin', 'fa-duotone'], (prefix) => includes(className, prefix))){
     customProps.baseClassName = ''
   }
 
-  return <FuseSvgIcon className={className} {...customProps} {...props}/>
+  return <FuseSvgIcon className={className} {...customProps} size={size} {...props}/>
 }
 
 export default MySvgIcon
