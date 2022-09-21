@@ -7,11 +7,12 @@ import ToolbarItem from './ToolbarItem'
 function SideToolbar(props) {
   const {
     sx,
-    leftItems = [],
+    contentProps,
+    leftItems,
     leftContentProps,
-    centerItems = [],
+    centerItems,
     centerContentProps,
-    rightItems = [],
+    rightItems,
     rightContentProps,
   } = props
 
@@ -24,13 +25,13 @@ function SideToolbar(props) {
       justifyContent="space-between"
       alignItems="center"
     >
-      <Stack direction="row" {...leftContentProps}>
+      <Stack direction="row" {...contentProps} {...leftContentProps}>
         {leftItems.length > 0 && leftItems.map((item, key) => <ToolbarItem key={key} {...itemProps} {...item}/>)}
       </Stack>
-      <Stack direction="row" {...centerContentProps}>
+      <Stack direction="row" {...contentProps} {...centerContentProps}>
         {centerItems.length > 0 && centerItems.map((item, key) => <ToolbarItem key={key} {...itemProps} {...item}/>)}
       </Stack>
-      <Stack direction="row" {...rightContentProps}>
+      <Stack direction="row" {...contentProps} {...rightContentProps}>
         {rightItems.length > 0 &&  rightItems.map((item, key) => <ToolbarItem key={key} {...itemProps} {...item}/>)}
       </Stack>
     </Stack>
@@ -42,6 +43,18 @@ SideToolbar.propTypes = {
   centerItems: PropTypes.array,
   rightItems: PropTypes.array,
 };
+
+SideToolbar.defaultProps = {
+  sx: {
+    p: 1,
+  },
+  contentProps: {
+    spacing: 0.5
+  },
+  leftItems: [],
+  centerItems: [],
+  rightItems: [],
+}
 
 
 export default SideToolbar

@@ -26,8 +26,8 @@
   "scripts": {
     "size": "size-limit",
     "clean": "rimraf dist",
-    "build": "microbundle --jsx React.createElement",
-    "watch": "microbundle watch --jsx React.createElement",
+    "build": "microbundle --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react",
+    "watch": "microbundle watch --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react --no-compress",
     "prebuild": "npm run clean",
     "preversion": "npm run build",
     "postversion": "git push --follow-tags"
@@ -36,9 +36,12 @@
     "@mui/icons-material": "^5.10.3",
     "@tippyjs/react": "^4.2.6",
     "clsx": "^1.2.1",
+    "immer": "^9.0.15",
     "lodash": "^4.17.21",
+    "nanoevents": "^7.0.1",
     "prop-types": "15.8.1",
-    "tippy.js": "^6.3.7"
+    "tippy.js": "^6.3.7",
+    "zustand": "^4.1.1"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.0.1",
