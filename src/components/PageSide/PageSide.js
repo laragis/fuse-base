@@ -112,7 +112,7 @@ function PageSide(props) {
           divider={<Divider/>}
         >
           {props.header && (isBoolean(props.header) ? <Component type="PageSideHeader" {...headerProps}/> : props.header)}
-          {props.subHeader && <div>Sub Header</div>}
+          {props.subHeader && props.subHeader}
 
           {(props.toolbar || shownToolbar) && (
             props.toolbar ?? <Toolbar {...toolbarProps}/>
