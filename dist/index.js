@@ -1,2 +1,916 @@
-import e,{memo as t,forwardRef as r,useRef as o,useImperativeHandle as n,useState as i,useMemo as l,useCallback as a,useEffect as s}from"react";import c from"@tippyjs/react";import{jsx as m,jsxs as u,Fragment as d}from"react/jsx-runtime";import h from"clsx";import*as p from"prop-types";import f from"prop-types";import{styled as b}from"@mui/material/styles";import{Box as g}from"@mui/system";import I from"@mui/material/Icon";import{includes as S,replace as y,some as v,isEmpty as T,isBoolean as w,pick as x}from"lodash";import{Box as C,MenuItem as P,ListItemIcon as z,ListItemText as O,Divider as N,Menu as j,IconButton as k,Stack as M}from"@mui/material";import W from"zustand";import E from"immer";import{createNanoEvents as F}from"nanoevents";import H from"@mui/material/Menu";import{ChevronRight as D}from"@mui/icons-material";function A(){return A=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var o in r)Object.prototype.hasOwnProperty.call(r,o)&&(e[o]=r[o])}return e},A.apply(this,arguments)}function L(e,t){if(null==e)return{};var r,o,n={},i=Object.keys(e);for(o=0;o<i.length;o++)t.indexOf(r=i[o])>=0||(n[r]=e[r]);return n}const Y=["title","children"];function B(e){let{title:t,children:r}=e,o=L(e,Y);if(!t)return r;const n=A({theme:"light",animation:"scale",content:t,trigger:"mouseenter"},o);/*#__PURE__*/return m(c,A({},n,{children:r}))}var R=/*#__PURE__*/t(B);const X=["theme"],V=["children","className","size"],$=b(g)(e=>{let{theme:t}=e,r=L(e,X);return{width:r.size,height:r.size,minWidth:r.size,minHeight:r.size,fontSize:r.size,lineHeight:r.size,color:{primary:t.palette.primary.main,secondary:t.palette.secondary.main,info:t.palette.info.main,success:t.palette.success.main,warning:t.palette.warning.main,action:t.palette.action.active,error:t.palette.error.main,disabled:t.palette.action.disabled,inherit:void 0}[r.color]}}),K=/*#__PURE__*/r((e,t)=>{if(!e.children.includes(":"))/*#__PURE__*/return m(I,A({ref:t},e));const r=e.children.replace(":",".svg#");/*#__PURE__*/return m($,A({},e,{component:"svg",fill:"none",xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 100 100",className:h("shrink-0 fill-current ",e.className),ref:t,size:e.size,sx:e.sx,color:e.color,children:/*#__PURE__*/m("use",{xlinkHref:`assets/icons/${r}`})}))});function q(e){let{children:t,className:r,size:o}=e,n=L(e,V),i={children:t};return t&&S(t,"fontawesome-")&&(i.children=void 0,i.baseClassName="",i.className=y(t,"fontawesome-","fa-"),i.className=y(i.className,":"," fa-"),i.className=["w-inherit",i.className,r].join(" "),o&&(i.sx={width:o,height:o,minWidth:o,minHeight:o,fontSize:o})),r&&v(["fa-solid","fa-regular","fa-light","fa-thin","fa-duotone"],e=>S(r,e))&&(i.baseClassName=""),/*#__PURE__*/m(K,A({className:r},i,{size:o},n))}K.propTypes={children:f.string,size:f.oneOfType([f.number,f.string]),sx:f.object,color:f.oneOf(["inherit","disabled","primary","secondary","action","error","info","success","warning"])},K.defaultProps={children:"",size:24,sx:{},color:"inherit"};const G={};function J(e,t){G[e]=t}function Q(e){const t=G[e.name];return t?/*#__PURE__*/m(t,A({},e)):/*#__PURE__*/m(C,{p:2,children:"Not Found"})}const U=["leftIcon","rightIcon","label","MenuItemProps","className"],Z=b(P)({});var _=/*#__PURE__*/r((e,t)=>{let{leftIcon:r,rightIcon:o,label:n,className:i}=e,l=L(e,U);/*#__PURE__*/return u(Z,A({ref:t,className:i},l,{children:[r&&/*#__PURE__*/m(z,{children:r}),/*#__PURE__*/m(O,{children:n}),o&&/*#__PURE__*/m(z,{className:"flex justify-end",children:o})]}))});const ee=["parentMenuOpen","label","rightIcon","leftIcon","children","className","tabIndex","ContainerProps"],te=["ref"];var re=/*#__PURE__*/e.forwardRef(function(e,t){const{parentMenuOpen:r,label:l,rightIcon:a=/*#__PURE__*/m(D,{color:"disabled",fontSize:"small"}),leftIcon:s=null,children:c,className:d,tabIndex:h,ContainerProps:p={}}=e,f=L(e,ee),{ref:b}=p,g=L(p,te),I=o(null);n(t,()=>I.current);const S=o(null);n(b,()=>S.current);const y=o(null),[v,T]=i(!1),w=()=>{const e=S.current.ownerDocument.activeElement;for(const t of y.current.children)if(t===e)return!0;return!1},x=v&&r;let C;return e.disabled||(C=void 0!==h?h:-1),/*#__PURE__*/u("div",A({},g,{ref:S,onFocus:e=>{e.target===S.current&&T(!0),g.onFocus&&g.onFocus(e)},tabIndex:C,onMouseEnter:e=>{T(!0),g.onMouseEnter&&g.onMouseEnter(e)},onMouseLeave:e=>{T(!1),g.onMouseLeave&&g.onMouseLeave(e)},onKeyDown:e=>{if("Escape"===e.key)return;w()&&e.stopPropagation();const t=S.current.ownerDocument.activeElement;"ArrowLeft"===e.key&&w()&&S.current.focus(),"ArrowRight"===e.key&&e.target===S.current&&e.target===t&&y.current.children[0].focus()},children:[/*#__PURE__*/m(_,{MenuItemProps:f,className:d,ref:I,leftIcon:s,rightIcon:a,label:l}),/*#__PURE__*/m(H,{style:{pointerEvents:"none"},anchorEl:I.current,anchorOrigin:{vertical:"top",horizontal:"right"},transformOrigin:{vertical:"top",horizontal:"left"},open:x,autoFocus:!1,disableAutoFocus:!0,disableEnforceFocus:!0,onClose:()=>{T(!1)},children:/*#__PURE__*/m("div",{ref:y,style:{pointerEvents:"auto"},children:c})})]}))});const oe=["divider"],ne=["items","callback"];function ie({items:e,onClose:t,open:r}){return e.map((e,o)=>{let{divider:n}=e,i=L(e,oe);if(n)/*#__PURE__*/return m(N,{sx:{my:.5}},o);const{items:l,callback:a}=i,s=L(i,ne);return l&&l.length>0?/*#__PURE__*/m(re,A({},s,{parentMenuOpen:r,children:/*#__PURE__*/m(ie,{open:r,items:l,onClose:t})}),o):/*#__PURE__*/m(_,A({},s,{onClick:()=>{t(),a&&a()}}),o)})}function le({position:e,items:t,children:r,onClose:n}){const c=o(null),[d,h]=i(null),p=l(()=>null!==d,[d]),f=l(()=>p?{top:d.mouseY,left:d.mouseX}:void 0,[p,d]),b=a(()=>{n(),p&&h(null)},[p]);return s(()=>{h(e)},[e]),/*#__PURE__*/u("div",{ref:c,onContextMenu:e=>{e.preventDefault(),h(null===d?{mouseX:e.clientX+2,mouseY:e.clientY-6}:null)},children:[/*#__PURE__*/m(j,{open:p,onClose:b,anchorReference:"anchorPosition",anchorPosition:f,disableAutoFocusItem:!0,children:!T(t)&&/*#__PURE__*/m(ie,{open:p,items:t,onClose:b})}),r]})}ie.propTypes={items:f.array},le.propTypes={items:f.array};const ae=["icon","label","visible","onClick","btnSize","iconSize","items","color"];function se(e){const{icon:t,label:r,visible:o=!0,onClick:n,btnSize:a,iconSize:s,items:c=[],color:h}=e;L(e,ae);const p=w(e.tooltip)?r:e.tooltip,f=l(()=>o&&t,[o,t]),[b,g]=i(null),I=Boolean(b),S=(e,t)=>{g(null),t&&t()},y=f&&/*#__PURE__*/m(k,{size:a,onClick:e=>T(c)?n&&n(e):g(e.currentTarget),color:h,children:t&&/*#__PURE__*/m(q,{size:s,children:t})}),v=f&&!T(c)&&/*#__PURE__*/m(j,{open:I,anchorEl:b,onClose:e=>S(),transformOrigin:{horizontal:"right",vertical:"top"},anchorOrigin:{horizontal:"right",vertical:"bottom"},children:c.map((e,t)=>/*#__PURE__*/u(P,{onClick:t=>S(0,e.onClick),children:[e.icon&&/*#__PURE__*/m(z,{children:/*#__PURE__*/m(q,{children:e.icon})}),e.label&&/*#__PURE__*/m(O,{children:e.label})]},t))});/*#__PURE__*/return u(d,p&&f?{children:[/*#__PURE__*/m(R,{title:p,children:y}),v]}:{children:[y,v]})}function ce(e){const{sx:t,contentProps:r,leftItems:o,leftContentProps:n,centerItems:i,centerContentProps:l,rightItems:a,rightContentProps:s}=e,c=x(e,["btnSize","iconSize"]);/*#__PURE__*/return u(M,{sx:t,direction:"row",justifyContent:"space-between",alignItems:"center",children:[/*#__PURE__*/m(M,A({direction:"row"},r,n,{children:o.length>0&&o.map((e,t)=>/*#__PURE__*/m(se,A({},c,e),t))})),/*#__PURE__*/m(M,A({direction:"row"},r,l,{children:i.length>0&&i.map((e,t)=>/*#__PURE__*/m(se,A({},c,e),t))})),/*#__PURE__*/m(M,A({direction:"row"},r,s,{children:a.length>0&&a.map((e,t)=>/*#__PURE__*/m(se,A({},c,e),t))}))]})}function me(e,t){if(Object.is(e,t))return!0;if("object"!=typeof e||null===e||"object"!=typeof t||null===t)return!1;const r=Object.keys(e);if(r.length!==Object.keys(t).length)return!1;for(let o=0;o<r.length;o++)if(!Object.prototype.hasOwnProperty.call(t,r[o])||!Object.is(e[r[o]],t[r[o]]))return!1;return!0}se.defautProps={iconSize:18},ce.propTypes={leftItems:f.array,centerItems:f.array,rightItems:f.array},ce.defaultProps={sx:{p:1},contentProps:{spacing:.5},leftItems:[],centerItems:[],rightItems:[]};const ue=W(e=>({components:{},registerComponent:(t,r)=>e(E(e=>{e.components[t]=r}))})),de=ue.getState().components;function he(e,t){ue.getState().registerComponent(e,t)}function pe(e){const t=ue(t=>t.components[e.type],me);return t?/*#__PURE__*/m(t,A({},e)):null}const fe=["theme"],be=b("div")(e=>{let{theme:t}=e,r=L(e,fe);return{display:"flex",flexDirection:"column",minWidth:0,minHeight:"100%",position:"relative",flex:"1 1 auto",width:"100%",height:"auto",backgroundColor:t.palette.background.paper,"& .PageSide-wrapper":A({display:"flex",flexDirection:"row",flex:"1 1 auto",minWidth:0,height:"100%"},"content"===r.scroll&&{position:"absolute",top:0,bottom:0,right:0,left:0}),"& .PageSide-contentWrapper":{display:"flex",flexDirection:"column",width:"100%",height:"100%",flex:"1 1 auto"},"& .PageSide-content":{display:"flex",flexDirection:"column",flex:"1 1 auto",minHeight:0,overflowY:"auto"}}});function ge(e){var t,r,n;o(null),o(null),o(null);const i=l(()=>v([e.leftToolbarItems,e.centerToolbarItems,e.rightToolbarItems],e=>!T(e)),[e.leftToolbarItems,e.centerToolbarItems,e.rightToolbarItems]),a=l(()=>A({},e.toolbarProps,{leftItems:e.leftToolbarItems,centerItems:e.centerToolbarItems,rightItems:e.rightToolbarItems}),[e.leftToolbarItems,e.centerToolbarItems,e.rightToolbarItems]),s=l(()=>v([e.leftSubToolbarItems,e.centerSubToolbarItems,e.rightSubToolbarItems],e=>!T(e)),[e.leftSubToolbarItems,e.centerSubToolbarItems,e.rightSubToolbarItems]),c=l(()=>A({},e.subToolbarProps,{leftItems:e.leftSubToolbarItems,centerItems:e.centerSubToolbarItems,rightItems:e.rightSubToolbarItems}),[e.leftSubToolbarItems,e.centerSubToolbarItems,e.rightSubToolbarItems]),d={title:e.headerTitle};/*#__PURE__*/return u(be,{className:h("PageSide-root",`PageSide-scroll-${e.scroll}`,e.className),scroll:e.scroll,leftsidebarwidth:e.leftSidebarWidth,rightsidebarwidth:e.rightSidebarWidth,children:[/*#__PURE__*/u("div",{className:"PageSide-wrapper",children:[e.leftSidebarContent&&/*#__PURE__*/m("div",{children:"leftSidebarContent"}),/*#__PURE__*/u(M,A({},e.contentWrapperProps,{className:h("PageSide-contentWrapper",null==(t=e.contentWrapperProps)?void 0:t.className),divider:/*#__PURE__*/m(N,{}),children:[e.header&&(w(e.header)?/*#__PURE__*/m(pe,A({type:"PageSideHeader"},d)):e.header),e.subHeader&&e.subHeader,(e.toolbar||i)&&(null!=(r=e.toolbar)?r:/*#__PURE__*/m(ce,A({},a))),(e.subToolbar||s)&&(null!=(n=e.subToolbar)?n:/*#__PURE__*/m(ce,A({},c))),e.content&&/*#__PURE__*/m("div",{className:h("PageSide-content container"),children:e.content}),e.footer&&/*#__PURE__*/m("div",{children:"Footer"})]}))]}),e.rightSidebarContent&&/*#__PURE__*/m("div",{children:"rightSidebarContent"})]})}ge.propTypes={contentWrapperProps:p.object,leftSidebarContent:p.node,leftSidebarVariant:p.node,rightSidebarContent:p.node,rightSidebarVariant:p.node,header:p.oneOfType([p.node,p.bool]),subHeader:p.node,toolbar:p.node,toolbarProps:p.object,leftToolbarItems:p.array,centerToolbarItems:p.array,rightToolbarItems:p.array,subToolbar:p.node,subToolbarProps:p.object,leftSubToolbarItems:p.array,centerSubToolbarItems:p.array,rightSubToolbarItems:p.array,content:p.node,scroll:p.oneOf(["normal","page","content"]),leftSidebarOpen:p.bool,rightSidebarOpen:p.bool,leftSidebarWidth:p.number,rightSidebarWidth:p.number,rightSidebarOnClose:p.func,leftSidebarOnClose:p.func},ge.defaultProps={classes:{},scroll:"page",leftSidebarOpen:!1,rightSidebarOpen:!1,rightSidebarWidth:240,leftSidebarWidth:240};var Ie=F();export{pe as Component,le as ContextMenu,q as FuseSvgIcon,Q as Layout,ge as PageSide,ce as Toolbar,se as ToolbarItem,R as Tooltip,de as components,Ie as emitter,G as layoutComponents,he as registerComponent,J as registerLayout};
+var React = require('react');
+var Tippy = require('@tippyjs/react');
+var jsxRuntime = require('react/jsx-runtime');
+var clsx = require('clsx');
+var PropTypes = require('prop-types');
+var styles = require('@mui/material/styles');
+var system = require('@mui/system');
+var Icon = require('@mui/material/Icon');
+var lodash = require('lodash');
+var material = require('@mui/material');
+var create = require('zustand');
+var produce = require('immer');
+var nanoevents = require('nanoevents');
+var Menu = require('@mui/material/Menu');
+var iconsMaterial = require('@mui/icons-material');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+function _interopNamespace(e) {
+  if (e && e.__esModule) return e;
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () { return e[k]; }
+        });
+      }
+    });
+  }
+  n["default"] = e;
+  return n;
+}
+
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var Tippy__default = /*#__PURE__*/_interopDefaultLegacy(Tippy);
+var clsx__default = /*#__PURE__*/_interopDefaultLegacy(clsx);
+var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
+var PropTypes__namespace = /*#__PURE__*/_interopNamespace(PropTypes);
+var Icon__default = /*#__PURE__*/_interopDefaultLegacy(Icon);
+var create__default = /*#__PURE__*/_interopDefaultLegacy(create);
+var produce__default = /*#__PURE__*/_interopDefaultLegacy(produce);
+var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
+
+function _extends() {
+  _extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+  return _extends.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
+function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+  var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+  if (it) return (it = it.call(o)).next.bind(it);
+
+  if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+    if (it) o = it;
+    var i = 0;
+    return function () {
+      if (i >= o.length) return {
+        done: true
+      };
+      return {
+        done: false,
+        value: o[i++]
+      };
+    };
+  }
+
+  throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+var _excluded$7 = ["title", "children"];
+
+function Tooltip(_ref) {
+  var title = _ref.title,
+      children = _ref.children,
+      rest = _objectWithoutPropertiesLoose(_ref, _excluded$7);
+
+  if (!title) return children;
+
+  var config = _extends({
+    theme: 'light',
+    animation: 'scale',
+    content: title,
+    trigger: 'mouseenter'
+  }, rest);
+
+  return /*#__PURE__*/jsxRuntime.jsx(Tippy__default["default"], _extends({}, config, {
+    children: children
+  }));
+}
+
+var Tooltip$1 = /*#__PURE__*/React.memo(Tooltip);
+
+var _excluded$6 = ["theme"],
+    _excluded2$2 = ["children", "className", "size"];
+var Root$1 = styles.styled(system.Box)(function (_ref) {
+  var theme = _ref.theme,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
+
+  return {
+    width: props.size,
+    height: props.size,
+    minWidth: props.size,
+    minHeight: props.size,
+    fontSize: props.size,
+    lineHeight: props.size,
+    color: {
+      primary: theme.palette.primary.main,
+      secondary: theme.palette.secondary.main,
+      info: theme.palette.info.main,
+      success: theme.palette.success.main,
+      warning: theme.palette.warning.main,
+      action: theme.palette.action.active,
+      error: theme.palette.error.main,
+      disabled: theme.palette.action.disabled,
+      inherit: undefined
+    }[props.color]
+  };
+});
+var FuseSvgIcon = /*#__PURE__*/React.forwardRef(function (props, ref) {
+  if (!props.children.includes(':')) {
+    return /*#__PURE__*/jsxRuntime.jsx(Icon__default["default"], _extends({
+      ref: ref
+    }, props));
+  }
+
+  var iconPath = props.children.replace(':', '.svg#');
+  return /*#__PURE__*/jsxRuntime.jsx(Root$1, _extends({}, props, {
+    component: "svg",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 100 100",
+    className: clsx__default["default"]('shrink-0 fill-current ', props.className),
+    ref: ref,
+    size: props.size,
+    sx: props.sx,
+    color: props.color,
+    children: /*#__PURE__*/jsxRuntime.jsx("use", {
+      xlinkHref: "assets/icons/" + iconPath
+    })
+  }));
+});
+FuseSvgIcon.propTypes = {
+  children: PropTypes__default["default"].string,
+  size: PropTypes__default["default"].oneOfType([PropTypes__default["default"].number, PropTypes__default["default"].string]),
+  sx: PropTypes__default["default"].object,
+  color: PropTypes__default["default"].oneOf(['inherit', 'disabled', 'primary', 'secondary', 'action', 'error', 'info', 'success', 'warning'])
+};
+FuseSvgIcon.defaultProps = {
+  children: '',
+  size: 24,
+  sx: {},
+  color: 'inherit'
+};
+
+function MySvgIcon(_ref2) {
+  var children = _ref2.children,
+      className = _ref2.className,
+      size = _ref2.size,
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded2$2);
+
+  var customProps = {
+    children: children
+  };
+
+  if (children && lodash.includes(children, 'fontawesome-')) {
+    customProps.children = undefined;
+    customProps.baseClassName = '';
+    customProps.className = lodash.replace(children, 'fontawesome-', 'fa-');
+    customProps.className = lodash.replace(customProps.className, ':', ' fa-');
+    customProps.className = ['w-inherit', customProps.className, className].join(' ');
+    if (size) customProps.sx = {
+      width: size,
+      height: size,
+      minWidth: size,
+      minHeight: size,
+      fontSize: size
+    };
+  }
+
+  if (className && lodash.some(['fa-solid', 'fa-regular', 'fa-light', 'fa-thin', 'fa-duotone'], function (prefix) {
+    return lodash.includes(className, prefix);
+  })) {
+    customProps.baseClassName = '';
+  }
+
+  return /*#__PURE__*/jsxRuntime.jsx(FuseSvgIcon, _extends({
+    className: className
+  }, customProps, {
+    size: size
+  }, props));
+}
+
+var components$1 = {};
+function registerLayout(name, Component) {
+  components$1[name] = Component;
+}
+function Layout(props) {
+  var C = components$1[props.name];
+  return C ? /*#__PURE__*/jsxRuntime.jsx(C, _extends({}, props)) : /*#__PURE__*/jsxRuntime.jsx(material.Box, {
+    p: 2,
+    children: "Not Found"
+  });
+}
+
+var _excluded$5 = ["leftIcon", "rightIcon", "label", "MenuItemProps", "className"];
+var StyledMenuItem = styles.styled(material.MenuItem)({});
+var MenuItem = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
+  var leftIcon = _ref.leftIcon,
+      rightIcon = _ref.rightIcon,
+      label = _ref.label,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
+
+  return /*#__PURE__*/jsxRuntime.jsxs(StyledMenuItem, _extends({
+    ref: ref,
+    className: className
+  }, props, {
+    children: [leftIcon && /*#__PURE__*/jsxRuntime.jsx(material.ListItemIcon, {
+      children: leftIcon
+    }), /*#__PURE__*/jsxRuntime.jsx(material.ListItemText, {
+      children: label
+    }), rightIcon && /*#__PURE__*/jsxRuntime.jsx(material.ListItemIcon, {
+      className: "flex justify-end",
+      children: rightIcon
+    })]
+  }));
+});
+var MenuItem$1 = MenuItem;
+
+var _excluded$4 = ["parentMenuOpen", "label", "rightIcon", "leftIcon", "children", "className", "tabIndex", "ContainerProps"],
+    _excluded2$1 = ["ref"];
+var SubMenuItem = /*#__PURE__*/React__default["default"].forwardRef(function SubMenu(props, ref) {
+  var parentMenuOpen = props.parentMenuOpen,
+      label = props.label,
+      _props$rightIcon = props.rightIcon,
+      rightIcon = _props$rightIcon === void 0 ? /*#__PURE__*/jsxRuntime.jsx(iconsMaterial.ChevronRight, {
+    color: "disabled",
+    fontSize: "small"
+  }) : _props$rightIcon,
+      _props$leftIcon = props.leftIcon,
+      leftIcon = _props$leftIcon === void 0 ? null : _props$leftIcon,
+      children = props.children,
+      className = props.className,
+      tabIndexProp = props.tabIndex,
+      _props$ContainerProps = props.ContainerProps,
+      ContainerPropsProp = _props$ContainerProps === void 0 ? {} : _props$ContainerProps,
+      MenuItemProps = _objectWithoutPropertiesLoose(props, _excluded$4);
+
+  var containerRefProp = ContainerPropsProp.ref,
+      ContainerProps = _objectWithoutPropertiesLoose(ContainerPropsProp, _excluded2$1);
+
+  var menuItemRef = React.useRef(null);
+  React.useImperativeHandle(ref, function () {
+    return menuItemRef.current;
+  });
+  var containerRef = React.useRef(null);
+  React.useImperativeHandle(containerRefProp, function () {
+    return containerRef.current;
+  });
+  var menuContainerRef = React.useRef(null);
+
+  var _useState = React.useState(false),
+      isSubMenuOpen = _useState[0],
+      setIsSubMenuOpen = _useState[1];
+
+  var handleMouseEnter = function handleMouseEnter(e) {
+    setIsSubMenuOpen(true);
+
+    if (ContainerProps.onMouseEnter) {
+      ContainerProps.onMouseEnter(e);
+    }
+  };
+
+  var handleMouseLeave = function handleMouseLeave(e) {
+    setIsSubMenuOpen(false);
+
+    if (ContainerProps.onMouseLeave) {
+      ContainerProps.onMouseLeave(e);
+    }
+  }; // Check if any immediate children are active
+
+
+  var isSubmenuFocused = function isSubmenuFocused() {
+    var active = containerRef.current.ownerDocument.activeElement;
+
+    for (var _iterator = _createForOfIteratorHelperLoose(menuContainerRef.current.children), _step; !(_step = _iterator()).done;) {
+      var child = _step.value;
+
+      if (child === active) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  var handleFocus = function handleFocus(e) {
+    if (e.target === containerRef.current) {
+      setIsSubMenuOpen(true);
+    }
+
+    if (ContainerProps.onFocus) {
+      ContainerProps.onFocus(e);
+    }
+  };
+
+  var handleKeyDown = function handleKeyDown(e) {
+    if (e.key === 'Escape') {
+      return;
+    }
+
+    if (isSubmenuFocused()) {
+      e.stopPropagation();
+    }
+
+    var active = containerRef.current.ownerDocument.activeElement;
+
+    if (e.key === 'ArrowLeft' && isSubmenuFocused()) {
+      containerRef.current.focus();
+    }
+
+    if (e.key === 'ArrowRight' && e.target === containerRef.current && e.target === active) {
+      var firstChild = menuContainerRef.current.children[0];
+      firstChild.focus();
+    }
+  };
+
+  var open = isSubMenuOpen && parentMenuOpen; // Root element must have a `tabIndex` attribute for keyboard navigation
+
+  var tabIndex;
+
+  if (!props.disabled) {
+    tabIndex = tabIndexProp !== undefined ? tabIndexProp : -1;
+  }
+
+  return /*#__PURE__*/jsxRuntime.jsxs("div", _extends({}, ContainerProps, {
+    ref: containerRef,
+    onFocus: handleFocus,
+    tabIndex: tabIndex,
+    onMouseEnter: handleMouseEnter,
+    onMouseLeave: handleMouseLeave,
+    onKeyDown: handleKeyDown,
+    children: [/*#__PURE__*/jsxRuntime.jsx(MenuItem$1, {
+      MenuItemProps: MenuItemProps,
+      className: className,
+      ref: menuItemRef,
+      leftIcon: leftIcon,
+      rightIcon: rightIcon,
+      label: label
+    }), /*#__PURE__*/jsxRuntime.jsx(Menu__default["default"] // Set pointer events to 'none' to prevent the invisible Popover div
+    // from capturing events for clicks and hovers
+    , {
+      style: {
+        pointerEvents: 'none'
+      },
+      anchorEl: menuItemRef.current,
+      anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'right'
+      },
+      transformOrigin: {
+        vertical: 'top',
+        horizontal: 'left'
+      },
+      open: open,
+      autoFocus: false,
+      disableAutoFocus: true,
+      disableEnforceFocus: true,
+      onClose: function onClose() {
+        setIsSubMenuOpen(false);
+      },
+      children: /*#__PURE__*/jsxRuntime.jsx("div", {
+        ref: menuContainerRef,
+        style: {
+          pointerEvents: 'auto'
+        },
+        children: children
+      })
+    })]
+  }));
+}); // SubMenu.displayName = 'SubMenu';
+
+var SubMenuItem$1 = SubMenuItem;
+
+var _excluded$3 = ["divider"],
+    _excluded2 = ["items", "callback"];
+
+function MenuItems(_ref) {
+  var items = _ref.items,
+      handleClose = _ref.onClose,
+      open = _ref.open;
+  return items.map(function (_ref2, key) {
+    var divider = _ref2.divider,
+        item = _objectWithoutPropertiesLoose(_ref2, _excluded$3);
+
+    if (divider) return /*#__PURE__*/jsxRuntime.jsx(material.Divider, {
+      sx: {
+        my: 0.5
+      }
+    }, key);
+
+    var childItems = item.items,
+        callback = item.callback,
+        rest = _objectWithoutPropertiesLoose(item, _excluded2);
+
+    if (childItems && childItems.length > 0) {
+      return /*#__PURE__*/jsxRuntime.jsx(SubMenuItem$1, _extends({}, rest, {
+        parentMenuOpen: open,
+        children: /*#__PURE__*/jsxRuntime.jsx(MenuItems, {
+          open: open,
+          items: childItems,
+          onClose: handleClose
+        })
+      }), key);
+    }
+
+    return /*#__PURE__*/jsxRuntime.jsx(MenuItem$1, _extends({}, rest, {
+      onClick: function onClick() {
+        handleClose();
+        callback && callback();
+      }
+    }), key);
+  });
+}
+
+MenuItems.propTypes = {
+  items: PropTypes__default["default"].array
+};
+
+function ContextMenu(_ref) {
+  var position = _ref.position,
+      items = _ref.items,
+      children = _ref.children,
+      onClose = _ref.onClose;
+  var wrapperRef = React.useRef(null);
+
+  var _useState = React.useState(null),
+      contextMenu = _useState[0],
+      setContextMenu = _useState[1];
+
+  var open = React.useMemo(function () {
+    return contextMenu !== null;
+  }, [contextMenu]);
+  var anchorPosition = React.useMemo(function () {
+    return open ? {
+      top: contextMenu.mouseY,
+      left: contextMenu.mouseX
+    } : undefined;
+  }, [open, contextMenu]);
+  var handleClose = React.useCallback(function () {
+    onClose();
+    open && setContextMenu(null);
+  }, [open]);
+
+  var handleContextMenu = function handleContextMenu(e) {
+    e.preventDefault();
+    setContextMenu(contextMenu === null ? {
+      mouseX: e.clientX + 2,
+      mouseY: e.clientY - 6
+    } : null);
+  };
+
+  React.useEffect(function () {
+    setContextMenu(position);
+  }, [position]);
+  return /*#__PURE__*/jsxRuntime.jsxs("div", {
+    ref: wrapperRef,
+    onContextMenu: handleContextMenu,
+    children: [/*#__PURE__*/jsxRuntime.jsx(material.Menu, {
+      open: open,
+      onClose: handleClose,
+      anchorReference: "anchorPosition",
+      anchorPosition: anchorPosition,
+      disableAutoFocusItem: true,
+      children: !lodash.isEmpty(items) && /*#__PURE__*/jsxRuntime.jsx(MenuItems, {
+        open: open,
+        items: items,
+        onClose: handleClose
+      })
+    }), children]
+  });
+}
+
+ContextMenu.propTypes = {
+  items: PropTypes__default["default"].array
+};
+
+var _excluded$2 = ["icon", "label", "visible", "onClick", "btnSize", "iconSize", "items", "color"];
+
+function ToolbarItem(props) {
+  var icon = props.icon,
+      label = props.label,
+      _props$visible = props.visible,
+      visible = _props$visible === void 0 ? true : _props$visible,
+      onClick = props.onClick,
+      btnSize = props.btnSize,
+      iconSize = props.iconSize,
+      _props$items = props.items,
+      items = _props$items === void 0 ? [] : _props$items,
+      color = props.color;
+      _objectWithoutPropertiesLoose(props, _excluded$2);
+
+  var tooltip = lodash.isBoolean(props.tooltip) ? label : props.tooltip;
+  var shownContent = React.useMemo(function () {
+    return visible && icon;
+  }, [visible, icon]);
+
+  var _useState = React.useState(null),
+      anchorEl = _useState[0],
+      setAnchorEl = _useState[1];
+
+  var open = Boolean(anchorEl);
+
+  var handleClick = function handleClick(e) {
+    return lodash.isEmpty(items) ? onClick && onClick(e) : setAnchorEl(e.currentTarget);
+  };
+
+  var handleClose = function handleClose(e, callback) {
+    setAnchorEl(null);
+    callback && callback();
+  };
+
+  var content = shownContent && /*#__PURE__*/jsxRuntime.jsx(material.IconButton, {
+    size: btnSize,
+    onClick: handleClick,
+    color: color,
+    children: icon && /*#__PURE__*/jsxRuntime.jsx(MySvgIcon, {
+      size: iconSize,
+      children: icon
+    })
+  });
+
+  var menuContent = shownContent && !lodash.isEmpty(items) && /*#__PURE__*/jsxRuntime.jsx(material.Menu, {
+    open: open,
+    anchorEl: anchorEl,
+    onClose: function onClose(e) {
+      return handleClose();
+    },
+    transformOrigin: {
+      horizontal: 'right',
+      vertical: 'top'
+    },
+    anchorOrigin: {
+      horizontal: 'right',
+      vertical: 'bottom'
+    },
+    children: items.map(function (item, key) {
+      return /*#__PURE__*/jsxRuntime.jsxs(material.MenuItem, {
+        onClick: function onClick(e) {
+          return handleClose(e, item.onClick);
+        },
+        children: [item.icon && /*#__PURE__*/jsxRuntime.jsx(material.ListItemIcon, {
+          children: /*#__PURE__*/jsxRuntime.jsx(MySvgIcon, {
+            children: item.icon
+          })
+        }), item.label && /*#__PURE__*/jsxRuntime.jsx(material.ListItemText, {
+          children: item.label
+        })]
+      }, key);
+    })
+  });
+
+  if (tooltip && shownContent) return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+    children: [/*#__PURE__*/jsxRuntime.jsx(Tooltip$1, {
+      title: tooltip,
+      children: content
+    }), menuContent]
+  });
+  return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+    children: [content, menuContent]
+  });
+}
+
+ToolbarItem.defautProps = {
+  iconSize: 18
+};
+
+function shallow(objA, objB) {
+  if (Object.is(objA, objB)) {
+    return true;
+  }
+
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+
+  if (keysA.length !== Object.keys(objB).length) {
+    return false;
+  }
+
+  for (var i = 0; i < keysA.length; i++) {
+    if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !Object.is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+function isClassComponent(component) {
+  return typeof component === 'function' && !!component.prototype.isReactComponent;
+}
+function isFunctionComponent(component) {
+  return typeof component === 'function' && String(component).includes('return React.createElement');
+}
+function isReactComponent(component) {
+  return isClassComponent(component) || isFunctionComponent(component);
+}
+
+var _excluded$1 = ["case", "defaultCase"];
+
+function Element(_ref) {
+  var Component = _ref["case"],
+      DefaultComponent = _ref.defaultCase,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
+
+  if ( /*#__PURE__*/React.isValidElement(Component)) return Component;
+  if (isReactComponent(Component)) return /*#__PURE__*/jsxRuntime.jsx(Component, {});
+  return /*#__PURE__*/jsxRuntime.jsx(DefaultComponent, _extends({}, props, Component));
+}
+
+function Toolbar(props) {
+  var sx = props.sx,
+      contentProps = props.contentProps,
+      leftItems = props.leftItems,
+      leftContentProps = props.leftContentProps,
+      centerItems = props.centerItems,
+      centerContentProps = props.centerContentProps,
+      rightItems = props.rightItems,
+      rightContentProps = props.rightContentProps;
+  var itemProps = lodash.pick(props, ['btnSize', 'iconSize']);
+  return /*#__PURE__*/jsxRuntime.jsxs(material.Stack, {
+    sx: sx,
+    direction: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    children: [/*#__PURE__*/jsxRuntime.jsx(material.Stack, _extends({
+      direction: "row"
+    }, contentProps, leftContentProps, {
+      children: leftItems.length > 0 && leftItems.map(function (item, key) {
+        return /*#__PURE__*/jsxRuntime.jsx(Element, _extends({
+          "case": item,
+          defaultCase: ToolbarItem
+        }, itemProps), key);
+      })
+    })), /*#__PURE__*/jsxRuntime.jsx(material.Stack, _extends({
+      direction: "row"
+    }, contentProps, centerContentProps, {
+      children: centerItems.length > 0 && centerItems.map(function (item, key) {
+        return /*#__PURE__*/jsxRuntime.jsx(Element, _extends({
+          "case": item,
+          defaultCase: ToolbarItem
+        }, itemProps), key);
+      })
+    })), /*#__PURE__*/jsxRuntime.jsx(material.Stack, _extends({
+      direction: "row"
+    }, contentProps, rightContentProps, {
+      children: rightItems.length > 0 && rightItems.map(function (item, key) {
+        return /*#__PURE__*/jsxRuntime.jsx(Element, _extends({
+          "case": item,
+          defaultCase: ToolbarItem
+        }, itemProps), key);
+      })
+    }))]
+  });
+}
+
+Toolbar.propTypes = {
+  leftItems: PropTypes__default["default"].array,
+  centerItems: PropTypes__default["default"].array,
+  rightItems: PropTypes__default["default"].array
+};
+Toolbar.defaultProps = {
+  sx: {
+    p: 1
+  },
+  contentProps: {
+    spacing: 0.5
+  },
+  leftItems: [],
+  centerItems: [],
+  rightItems: []
+};
+
+var useComponentStore = create__default["default"](function (set) {
+  return {
+    components: {},
+    registerComponent: function registerComponent(type, Component) {
+      return set(produce__default["default"](function (state) {
+        state.components[type] = Component;
+      }));
+    }
+  };
+});
+var components = useComponentStore.getState().components;
+function registerComponent(name, Component) {
+  useComponentStore.getState().registerComponent(name, Component);
+}
+function Component(props) {
+  var C = useComponentStore(function (state) {
+    return state.components[props.type];
+  }, shallow);
+  return C ? /*#__PURE__*/jsxRuntime.jsx(C, _extends({}, props)) : null;
+}
+
+var _excluded = ["theme"];
+var Root = material.styled('div')(function (_ref) {
+  var theme = _ref.theme,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded);
+
+  return {
+    display: 'flex',
+    flexDirection: 'column',
+    minWidth: 0,
+    minHeight: '100%',
+    position: 'relative',
+    flex: '1 1 auto',
+    width: '100%',
+    height: 'auto',
+    backgroundColor: theme.palette.background.paper,
+    '& .PageSide-wrapper': _extends({
+      display: 'flex',
+      flexDirection: 'row',
+      flex: '1 1 auto',
+      minWidth: 0,
+      height: '100%'
+    }, props.scroll === 'content' && {
+      // backgroundColor: 'red',
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      right: 0,
+      left: 0 // overflow: 'hidden',
+
+    }),
+    '& .PageSide-contentWrapper': {
+      // backgroundColor: 'yellow',
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%',
+      height: '100%',
+      flex: '1 1 auto' // overflow: 'hidden',
+
+    },
+    '& .PageSide-content': {
+      display: 'flex',
+      flexDirection: 'column',
+      flex: '1 1 auto',
+      minHeight: 0,
+      overflowY: 'auto'
+    }
+  };
+});
+
+function PageSide(props) {
+  var _props$contentWrapper, _props$toolbar, _props$subToolbar;
+
+  React.useRef(null);
+  React.useRef(null);
+  React.useRef(null);
+  var shownToolbar = React.useMemo(function () {
+    return lodash.some([props.leftToolbarItems, props.centerToolbarItems, props.rightToolbarItems], function (v) {
+      return !lodash.isEmpty(v);
+    });
+  }, [props.leftToolbarItems, props.centerToolbarItems, props.rightToolbarItems]);
+  var toolbarProps = React.useMemo(function () {
+    return _extends({}, props.toolbarProps, {
+      leftItems: props.leftToolbarItems,
+      centerItems: props.centerToolbarItems,
+      rightItems: props.rightToolbarItems
+    });
+  }, [props.leftToolbarItems, props.centerToolbarItems, props.rightToolbarItems]);
+  var shownSubToolbar = React.useMemo(function () {
+    return lodash.some([props.leftSubToolbarItems, props.centerSubToolbarItems, props.rightSubToolbarItems], function (v) {
+      return !lodash.isEmpty(v);
+    });
+  }, [props.leftSubToolbarItems, props.centerSubToolbarItems, props.rightSubToolbarItems]);
+  var subToolbarProps = React.useMemo(function () {
+    return _extends({}, props.subToolbarProps, {
+      leftItems: props.leftSubToolbarItems,
+      centerItems: props.centerSubToolbarItems,
+      rightItems: props.rightSubToolbarItems
+    });
+  }, [props.leftSubToolbarItems, props.centerSubToolbarItems, props.rightSubToolbarItems]);
+  var headerProps = {
+    title: props.headerTitle
+  };
+  return /*#__PURE__*/jsxRuntime.jsxs(Root, {
+    className: clsx__default["default"]('PageSide-root', "PageSide-scroll-" + props.scroll, props.className) // ref={rootRef}
+    ,
+    scroll: props.scroll,
+    leftsidebarwidth: props.leftSidebarWidth,
+    rightsidebarwidth: props.rightSidebarWidth,
+    children: [/*#__PURE__*/jsxRuntime.jsxs("div", {
+      className: "PageSide-wrapper",
+      children: [props.leftSidebarContent && /*#__PURE__*/jsxRuntime.jsx("div", {
+        children: "leftSidebarContent"
+      }), /*#__PURE__*/jsxRuntime.jsxs(material.Stack, _extends({}, props.contentWrapperProps, {
+        className: clsx__default["default"]("PageSide-contentWrapper", (_props$contentWrapper = props.contentWrapperProps) == null ? void 0 : _props$contentWrapper.className),
+        divider: /*#__PURE__*/jsxRuntime.jsx(material.Divider, {}),
+        children: [props.header && (lodash.isBoolean(props.header) ? /*#__PURE__*/jsxRuntime.jsx(Component, _extends({
+          type: "PageSideHeader"
+        }, headerProps)) : props.header), props.subHeader && props.subHeader, (props.toolbar || shownToolbar) && ((_props$toolbar = props.toolbar) != null ? _props$toolbar : /*#__PURE__*/jsxRuntime.jsx(Toolbar, _extends({}, toolbarProps))), (props.subToolbar || shownSubToolbar) && ((_props$subToolbar = props.subToolbar) != null ? _props$subToolbar : /*#__PURE__*/jsxRuntime.jsx(Toolbar, _extends({}, subToolbarProps))), props.content && /*#__PURE__*/jsxRuntime.jsx("div", {
+          className: clsx__default["default"]('PageSide-content container'),
+          children: props.content
+        }), props.footer && /*#__PURE__*/jsxRuntime.jsx("div", {
+          children: "Footer"
+        })]
+      }))]
+    }), props.rightSidebarContent && /*#__PURE__*/jsxRuntime.jsx("div", {
+      children: "rightSidebarContent"
+    })]
+  });
+}
+
+PageSide.propTypes = {
+  contentWrapperProps: PropTypes__namespace.object,
+  leftSidebarContent: PropTypes__namespace.node,
+  leftSidebarVariant: PropTypes__namespace.node,
+  rightSidebarContent: PropTypes__namespace.node,
+  rightSidebarVariant: PropTypes__namespace.node,
+  header: PropTypes__namespace.oneOfType([PropTypes__namespace.node, PropTypes__namespace.bool]),
+  subHeader: PropTypes__namespace.node,
+  toolbar: PropTypes__namespace.node,
+  toolbarProps: PropTypes__namespace.object,
+  leftToolbarItems: PropTypes__namespace.array,
+  centerToolbarItems: PropTypes__namespace.array,
+  rightToolbarItems: PropTypes__namespace.array,
+  subToolbar: PropTypes__namespace.node,
+  subToolbarProps: PropTypes__namespace.object,
+  leftSubToolbarItems: PropTypes__namespace.array,
+  centerSubToolbarItems: PropTypes__namespace.array,
+  rightSubToolbarItems: PropTypes__namespace.array,
+  content: PropTypes__namespace.node,
+  scroll: PropTypes__namespace.oneOf(['normal', 'page', 'content']),
+  leftSidebarOpen: PropTypes__namespace.bool,
+  rightSidebarOpen: PropTypes__namespace.bool,
+  leftSidebarWidth: PropTypes__namespace.number,
+  rightSidebarWidth: PropTypes__namespace.number,
+  rightSidebarOnClose: PropTypes__namespace.func,
+  leftSidebarOnClose: PropTypes__namespace.func
+};
+PageSide.defaultProps = {
+  classes: {},
+  scroll: 'page',
+  leftSidebarOpen: false,
+  rightSidebarOpen: false,
+  rightSidebarWidth: 240,
+  leftSidebarWidth: 240
+};
+
+var emitter = nanoevents.createNanoEvents();
+var emitter$1 = emitter;
+
+exports.Component = Component;
+exports.ContextMenu = ContextMenu;
+exports.FuseSvgIcon = MySvgIcon;
+exports.Layout = Layout;
+exports.PageSide = PageSide;
+exports.Toolbar = Toolbar;
+exports.ToolbarItem = ToolbarItem;
+exports.Tooltip = Tooltip$1;
+exports.components = components;
+exports.emitter = emitter$1;
+exports.layoutComponents = components$1;
+exports.registerComponent = registerComponent;
+exports.registerLayout = registerLayout;
 //# sourceMappingURL=index.js.map

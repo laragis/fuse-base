@@ -1,10 +1,9 @@
 import { useMemo, useRef } from 'react'
 import * as PropTypes from 'prop-types'
-import { styled } from '@mui/material/styles'
 import clsx from 'clsx'
 import { isBoolean, isEmpty, some } from 'lodash'
 import Toolbar from '../Toolbar/Toolbar'
-import { Divider, Stack } from '@mui/material'
+import { styled, Divider, Stack } from '@mui/material'
 import Component from '../Component/Component'
 
 const Root = styled('div')(({ theme, ...props }) => ({

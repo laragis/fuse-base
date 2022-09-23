@@ -1,2 +1,907 @@
-!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports,require("react"),require("@tippyjs/react"),require("react/jsx-runtime"),require("clsx"),require("prop-types"),require("@mui/material/styles"),require("@mui/system"),require("@mui/material/Icon"),require("lodash"),require("@mui/material"),require("zustand"),require("immer"),require("nanoevents"),require("@mui/material/Menu"),require("@mui/icons-material")):"function"==typeof define&&define.amd?define(["exports","react","@tippyjs/react","react/jsx-runtime","clsx","prop-types","@mui/material/styles","@mui/system","@mui/material/Icon","lodash","@mui/material","zustand","immer","nanoevents","@mui/material/Menu","@mui/icons-material"],t):t((e||self).fuseBase={},e.react,e.Tippy,e.jsxRuntime,e.clsx,e.propTypes,e.styles,e.system,e.Icon,e.lodash,e.material,e.zustand,e.immer,e.nanoevents,e.Menu,e.iconsMaterial)}(this,function(e,t,r,n,o,i,a,l,s,c,u,f,d,m,p,h){function b(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}function g(e){if(e&&e.__esModule)return e;var t=Object.create(null);return e&&Object.keys(e).forEach(function(r){if("default"!==r){var n=Object.getOwnPropertyDescriptor(e,r);Object.defineProperty(t,r,n.get?n:{enumerable:!0,get:function(){return e[r]}})}}),t.default=e,t}var v=/*#__PURE__*/b(t),x=/*#__PURE__*/b(r),y=/*#__PURE__*/b(o),j=/*#__PURE__*/b(i),I=/*#__PURE__*/g(i),S=/*#__PURE__*/b(s),T=/*#__PURE__*/b(f),w=/*#__PURE__*/b(d),C=/*#__PURE__*/b(p);function P(){return P=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e},P.apply(this,arguments)}function O(e,t){if(null==e)return{};var r,n,o={},i=Object.keys(e);for(n=0;n<i.length;n++)t.indexOf(r=i[n])>=0||(o[r]=e[r]);return o}function z(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r];return n}var M=["title","children"];function N(e){var t=e.title,r=e.children,o=O(e,M);if(!t)return r;var i=P({theme:"light",animation:"scale",content:t,trigger:"mouseenter"},o);/*#__PURE__*/return n.jsx(x.default,P({},i,{children:r}))}var k=/*#__PURE__*/t.memo(N),E=["theme"],q=["children","className","size"],W=a.styled(l.Box)(function(e){var t=e.theme,r=O(e,E);return{width:r.size,height:r.size,minWidth:r.size,minHeight:r.size,fontSize:r.size,lineHeight:r.size,color:{primary:t.palette.primary.main,secondary:t.palette.secondary.main,info:t.palette.info.main,success:t.palette.success.main,warning:t.palette.warning.main,action:t.palette.action.active,error:t.palette.error.main,disabled:t.palette.action.disabled,inherit:void 0}[r.color]}}),R=/*#__PURE__*/t.forwardRef(function(e,t){if(!e.children.includes(":"))/*#__PURE__*/return n.jsx(S.default,P({ref:t},e));var r=e.children.replace(":",".svg#");/*#__PURE__*/return n.jsx(W,P({},e,{component:"svg",fill:"none",xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 100 100",className:y.default("shrink-0 fill-current ",e.className),ref:t,size:e.size,sx:e.sx,color:e.color,children:/*#__PURE__*/n.jsx("use",{xlinkHref:"assets/icons/"+r})}))});function H(e){var t=e.children,r=e.className,o=e.size,i=O(e,q),a={children:t};return t&&c.includes(t,"fontawesome-")&&(a.children=void 0,a.baseClassName="",a.className=c.replace(t,"fontawesome-","fa-"),a.className=c.replace(a.className,":"," fa-"),a.className=["w-inherit",a.className,r].join(" "),o&&(a.sx={width:o,height:o,minWidth:o,minHeight:o,fontSize:o})),r&&c.some(["fa-solid","fa-regular","fa-light","fa-thin","fa-duotone"],function(e){return c.includes(r,e)})&&(a.baseClassName=""),/*#__PURE__*/n.jsx(R,P({className:r},a,{size:o},i))}R.propTypes={children:j.default.string,size:j.default.oneOfType([j.default.number,j.default.string]),sx:j.default.object,color:j.default.oneOf(["inherit","disabled","primary","secondary","action","error","info","success","warning"])},R.defaultProps={children:"",size:24,sx:{},color:"inherit"};var D={},F=["leftIcon","rightIcon","label","MenuItemProps","className"],L=a.styled(u.MenuItem)({}),A=/*#__PURE__*/t.forwardRef(function(e,t){var r=e.leftIcon,o=e.rightIcon,i=e.label,a=e.className,l=O(e,F);/*#__PURE__*/return n.jsxs(L,P({ref:t,className:a},l,{children:[r&&/*#__PURE__*/n.jsx(u.ListItemIcon,{children:r}),/*#__PURE__*/n.jsx(u.ListItemText,{children:i}),o&&/*#__PURE__*/n.jsx(u.ListItemIcon,{className:"flex justify-end",children:o})]}))}),B=["parentMenuOpen","label","rightIcon","leftIcon","children","className","tabIndex","ContainerProps"],Y=["ref"],X=/*#__PURE__*/v.default.forwardRef(function(e,r){var o=e.parentMenuOpen,i=e.label,a=e.rightIcon,l=void 0===a?/*#__PURE__*/n.jsx(h.ChevronRight,{color:"disabled",fontSize:"small"}):a,s=e.leftIcon,c=void 0===s?null:s,u=e.children,f=e.className,d=e.tabIndex,m=e.ContainerProps,p=void 0===m?{}:m,b=O(e,B),g=p.ref,v=O(p,Y),x=t.useRef(null);t.useImperativeHandle(r,function(){return x.current});var y=t.useRef(null);t.useImperativeHandle(g,function(){return y.current});var j,I=t.useRef(null),S=t.useState(!1),T=S[1],w=function(){for(var e,t=y.current.ownerDocument.activeElement,r=function(e,t){var r="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(r)return(r=r.call(e)).next.bind(r);if(Array.isArray(e)||(r=function(e,t){if(e){if("string"==typeof e)return z(e,t);var r=Object.prototype.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?z(e,t):void 0}}(e))){r&&(e=r);var n=0;return function(){return n>=e.length?{done:!0}:{done:!1,value:e[n++]}}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}(I.current.children);!(e=r()).done;)if(e.value===t)return!0;return!1},M=S[0]&&o;return e.disabled||(j=void 0!==d?d:-1),/*#__PURE__*/n.jsxs("div",P({},v,{ref:y,onFocus:function(e){e.target===y.current&&T(!0),v.onFocus&&v.onFocus(e)},tabIndex:j,onMouseEnter:function(e){T(!0),v.onMouseEnter&&v.onMouseEnter(e)},onMouseLeave:function(e){T(!1),v.onMouseLeave&&v.onMouseLeave(e)},onKeyDown:function(e){if("Escape"!==e.key){w()&&e.stopPropagation();var t=y.current.ownerDocument.activeElement;"ArrowLeft"===e.key&&w()&&y.current.focus(),"ArrowRight"===e.key&&e.target===y.current&&e.target===t&&I.current.children[0].focus()}},children:[/*#__PURE__*/n.jsx(A,{MenuItemProps:b,className:f,ref:x,leftIcon:c,rightIcon:l,label:i}),/*#__PURE__*/n.jsx(C.default,{style:{pointerEvents:"none"},anchorEl:x.current,anchorOrigin:{vertical:"top",horizontal:"right"},transformOrigin:{vertical:"top",horizontal:"left"},open:M,autoFocus:!1,disableAutoFocus:!0,disableEnforceFocus:!0,onClose:function(){T(!1)},children:/*#__PURE__*/n.jsx("div",{ref:I,style:{pointerEvents:"auto"},children:u})})]}))}),V=["divider"],_=["items","callback"];function K(e){var t=e.onClose,r=e.open;return e.items.map(function(e,o){var i=e.divider,a=O(e,V);if(i)/*#__PURE__*/return n.jsx(u.Divider,{sx:{my:.5}},o);var l=a.items,s=a.callback,c=O(a,_);return l&&l.length>0?/*#__PURE__*/n.jsx(X,P({},c,{parentMenuOpen:r,children:/*#__PURE__*/n.jsx(K,{open:r,items:l,onClose:t})}),o):/*#__PURE__*/n.jsx(A,P({},c,{onClick:function(){t(),s&&s()}}),o)})}function U(e){var r=e.position,o=e.items,i=e.children,a=e.onClose,l=t.useRef(null),s=t.useState(null),f=s[0],d=s[1],m=t.useMemo(function(){return null!==f},[f]),p=t.useMemo(function(){return m?{top:f.mouseY,left:f.mouseX}:void 0},[m,f]),h=t.useCallback(function(){a(),m&&d(null)},[m]);return t.useEffect(function(){d(r)},[r]),/*#__PURE__*/n.jsxs("div",{ref:l,onContextMenu:function(e){e.preventDefault(),d(null===f?{mouseX:e.clientX+2,mouseY:e.clientY-6}:null)},children:[/*#__PURE__*/n.jsx(u.Menu,{open:m,onClose:h,anchorReference:"anchorPosition",anchorPosition:p,disableAutoFocusItem:!0,children:!c.isEmpty(o)&&/*#__PURE__*/n.jsx(K,{open:m,items:o,onClose:h})}),i]})}K.propTypes={items:j.default.array},U.propTypes={items:j.default.array};var $=["icon","label","visible","onClick","btnSize","iconSize","items","color"];function G(e){var r=e.icon,o=e.label,i=e.visible,a=void 0===i||i,l=e.onClick,s=e.btnSize,f=e.iconSize,d=e.items,m=void 0===d?[]:d,p=e.color;O(e,$);var h=c.isBoolean(e.tooltip)?o:e.tooltip,b=t.useMemo(function(){return a&&r},[a,r]),g=t.useState(null),v=g[0],x=g[1],y=Boolean(v),j=function(e,t){x(null),t&&t()},I=b&&/*#__PURE__*/n.jsx(u.IconButton,{size:s,onClick:function(e){return c.isEmpty(m)?l&&l(e):x(e.currentTarget)},color:p,children:r&&/*#__PURE__*/n.jsx(H,{size:f,children:r})}),S=b&&!c.isEmpty(m)&&/*#__PURE__*/n.jsx(u.Menu,{open:y,anchorEl:v,onClose:function(e){return j()},transformOrigin:{horizontal:"right",vertical:"top"},anchorOrigin:{horizontal:"right",vertical:"bottom"},children:m.map(function(e,t){/*#__PURE__*/return n.jsxs(u.MenuItem,{onClick:function(t){return j(0,e.onClick)},children:[e.icon&&/*#__PURE__*/n.jsx(u.ListItemIcon,{children:/*#__PURE__*/n.jsx(H,{children:e.icon})}),e.label&&/*#__PURE__*/n.jsx(u.ListItemText,{children:e.label})]},t)})});/*#__PURE__*/return n.jsxs(n.Fragment,h&&b?{children:[/*#__PURE__*/n.jsx(k,{title:h,children:I}),S]}:{children:[I,S]})}function J(e){var t=e.sx,r=e.contentProps,o=e.leftItems,i=e.leftContentProps,a=e.centerItems,l=e.centerContentProps,s=e.rightItems,f=e.rightContentProps,d=c.pick(e,["btnSize","iconSize"]);/*#__PURE__*/return n.jsxs(u.Stack,{sx:t,direction:"row",justifyContent:"space-between",alignItems:"center",children:[/*#__PURE__*/n.jsx(u.Stack,P({direction:"row"},r,i,{children:o.length>0&&o.map(function(e,t){/*#__PURE__*/return n.jsx(G,P({},d,e),t)})})),/*#__PURE__*/n.jsx(u.Stack,P({direction:"row"},r,l,{children:a.length>0&&a.map(function(e,t){/*#__PURE__*/return n.jsx(G,P({},d,e),t)})})),/*#__PURE__*/n.jsx(u.Stack,P({direction:"row"},r,f,{children:s.length>0&&s.map(function(e,t){/*#__PURE__*/return n.jsx(G,P({},d,e),t)})}))]})}function Q(e,t){if(Object.is(e,t))return!0;if("object"!=typeof e||null===e||"object"!=typeof t||null===t)return!1;var r=Object.keys(e);if(r.length!==Object.keys(t).length)return!1;for(var n=0;n<r.length;n++)if(!Object.prototype.hasOwnProperty.call(t,r[n])||!Object.is(e[r[n]],t[r[n]]))return!1;return!0}G.defautProps={iconSize:18},J.propTypes={leftItems:j.default.array,centerItems:j.default.array,rightItems:j.default.array},J.defaultProps={sx:{p:1},contentProps:{spacing:.5},leftItems:[],centerItems:[],rightItems:[]};var Z=T.default(function(e){return{components:{},registerComponent:function(t,r){return e(w.default(function(e){e.components[t]=r}))}}}),ee=Z.getState().components;function te(e){var t=Z(function(t){return t.components[e.type]},Q);return t?/*#__PURE__*/n.jsx(t,P({},e)):null}var re=["theme"],ne=a.styled("div")(function(e){var t=e.theme,r=O(e,re);return{display:"flex",flexDirection:"column",minWidth:0,minHeight:"100%",position:"relative",flex:"1 1 auto",width:"100%",height:"auto",backgroundColor:t.palette.background.paper,"& .PageSide-wrapper":P({display:"flex",flexDirection:"row",flex:"1 1 auto",minWidth:0,height:"100%"},"content"===r.scroll&&{position:"absolute",top:0,bottom:0,right:0,left:0}),"& .PageSide-contentWrapper":{display:"flex",flexDirection:"column",width:"100%",height:"100%",flex:"1 1 auto"},"& .PageSide-content":{display:"flex",flexDirection:"column",flex:"1 1 auto",minHeight:0,overflowY:"auto"}}});function oe(e){var r,o,i;t.useRef(null),t.useRef(null),t.useRef(null);var a=t.useMemo(function(){return c.some([e.leftToolbarItems,e.centerToolbarItems,e.rightToolbarItems],function(e){return!c.isEmpty(e)})},[e.leftToolbarItems,e.centerToolbarItems,e.rightToolbarItems]),l=t.useMemo(function(){return P({},e.toolbarProps,{leftItems:e.leftToolbarItems,centerItems:e.centerToolbarItems,rightItems:e.rightToolbarItems})},[e.leftToolbarItems,e.centerToolbarItems,e.rightToolbarItems]),s=t.useMemo(function(){return c.some([e.leftSubToolbarItems,e.centerSubToolbarItems,e.rightSubToolbarItems],function(e){return!c.isEmpty(e)})},[e.leftSubToolbarItems,e.centerSubToolbarItems,e.rightSubToolbarItems]),f=t.useMemo(function(){return P({},e.subToolbarProps,{leftItems:e.leftSubToolbarItems,centerItems:e.centerSubToolbarItems,rightItems:e.rightSubToolbarItems})},[e.leftSubToolbarItems,e.centerSubToolbarItems,e.rightSubToolbarItems]),d={title:e.headerTitle};/*#__PURE__*/return n.jsxs(ne,{className:y.default("PageSide-root","PageSide-scroll-"+e.scroll,e.className),scroll:e.scroll,leftsidebarwidth:e.leftSidebarWidth,rightsidebarwidth:e.rightSidebarWidth,children:[/*#__PURE__*/n.jsxs("div",{className:"PageSide-wrapper",children:[e.leftSidebarContent&&/*#__PURE__*/n.jsx("div",{children:"leftSidebarContent"}),/*#__PURE__*/n.jsxs(u.Stack,P({},e.contentWrapperProps,{className:y.default("PageSide-contentWrapper",null==(r=e.contentWrapperProps)?void 0:r.className),divider:/*#__PURE__*/n.jsx(u.Divider,{}),children:[e.header&&(c.isBoolean(e.header)?/*#__PURE__*/n.jsx(te,P({type:"PageSideHeader"},d)):e.header),e.subHeader&&e.subHeader,(e.toolbar||a)&&(null!=(o=e.toolbar)?o:/*#__PURE__*/n.jsx(J,P({},l))),(e.subToolbar||s)&&(null!=(i=e.subToolbar)?i:/*#__PURE__*/n.jsx(J,P({},f))),e.content&&/*#__PURE__*/n.jsx("div",{className:y.default("PageSide-content container"),children:e.content}),e.footer&&/*#__PURE__*/n.jsx("div",{children:"Footer"})]}))]}),e.rightSidebarContent&&/*#__PURE__*/n.jsx("div",{children:"rightSidebarContent"})]})}oe.propTypes={contentWrapperProps:I.object,leftSidebarContent:I.node,leftSidebarVariant:I.node,rightSidebarContent:I.node,rightSidebarVariant:I.node,header:I.oneOfType([I.node,I.bool]),subHeader:I.node,toolbar:I.node,toolbarProps:I.object,leftToolbarItems:I.array,centerToolbarItems:I.array,rightToolbarItems:I.array,subToolbar:I.node,subToolbarProps:I.object,leftSubToolbarItems:I.array,centerSubToolbarItems:I.array,rightSubToolbarItems:I.array,content:I.node,scroll:I.oneOf(["normal","page","content"]),leftSidebarOpen:I.bool,rightSidebarOpen:I.bool,leftSidebarWidth:I.number,rightSidebarWidth:I.number,rightSidebarOnClose:I.func,leftSidebarOnClose:I.func},oe.defaultProps={classes:{},scroll:"page",leftSidebarOpen:!1,rightSidebarOpen:!1,rightSidebarWidth:240,leftSidebarWidth:240};var ie=m.createNanoEvents();e.Component=te,e.ContextMenu=U,e.FuseSvgIcon=H,e.Layout=function(e){var t=D[e.name];return t?/*#__PURE__*/n.jsx(t,P({},e)):/*#__PURE__*/n.jsx(u.Box,{p:2,children:"Not Found"})},e.PageSide=oe,e.Toolbar=J,e.ToolbarItem=G,e.Tooltip=k,e.components=ee,e.emitter=ie,e.layoutComponents=D,e.registerComponent=function(e,t){Z.getState().registerComponent(e,t)},e.registerLayout=function(e,t){D[e]=t}});
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('@tippyjs/react'), require('react/jsx-runtime'), require('clsx'), require('prop-types'), require('@mui/material/styles'), require('@mui/system'), require('@mui/material/Icon'), require('lodash'), require('@mui/material'), require('zustand'), require('immer'), require('nanoevents'), require('@mui/material/Menu'), require('@mui/icons-material')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'react', '@tippyjs/react', 'react/jsx-runtime', 'clsx', 'prop-types', '@mui/material/styles', '@mui/system', '@mui/material/Icon', 'lodash', '@mui/material', 'zustand', 'immer', 'nanoevents', '@mui/material/Menu', '@mui/icons-material'], factory) :
+  (global = global || self, factory(global.fuseBase = {}, global.react, global.Tippy, global.jsxRuntime, global.clsx, global.propTypes, global.styles, global.system, global.Icon, global.lodash, global.material, global.zustand, global.immer, global.nanoevents, global.Menu, global.iconsMaterial));
+})(this, (function (exports, React, Tippy, jsxRuntime, clsx, PropTypes, styles, system, Icon, lodash, material, create, produce, nanoevents, Menu, iconsMaterial) {
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  function _interopNamespace(e) {
+    if (e && e.__esModule) return e;
+    var n = Object.create(null);
+    if (e) {
+      Object.keys(e).forEach(function (k) {
+        if (k !== 'default') {
+          var d = Object.getOwnPropertyDescriptor(e, k);
+          Object.defineProperty(n, k, d.get ? d : {
+            enumerable: true,
+            get: function () { return e[k]; }
+          });
+        }
+      });
+    }
+    n["default"] = e;
+    return n;
+  }
+
+  var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+  var Tippy__default = /*#__PURE__*/_interopDefaultLegacy(Tippy);
+  var clsx__default = /*#__PURE__*/_interopDefaultLegacy(clsx);
+  var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
+  var PropTypes__namespace = /*#__PURE__*/_interopNamespace(PropTypes);
+  var Icon__default = /*#__PURE__*/_interopDefaultLegacy(Icon);
+  var create__default = /*#__PURE__*/_interopDefaultLegacy(create);
+  var produce__default = /*#__PURE__*/_interopDefaultLegacy(produce);
+  var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
+
+  function _extends() {
+    _extends = Object.assign ? Object.assign.bind() : function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+
+      return target;
+    };
+    return _extends.apply(this, arguments);
+  }
+
+  function _objectWithoutPropertiesLoose(source, excluded) {
+    if (source == null) return {};
+    var target = {};
+    var sourceKeys = Object.keys(source);
+    var key, i;
+
+    for (i = 0; i < sourceKeys.length; i++) {
+      key = sourceKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      target[key] = source[key];
+    }
+
+    return target;
+  }
+
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+
+  function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+    var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+    if (it) return (it = it.call(o)).next.bind(it);
+
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
+      var i = 0;
+      return function () {
+        if (i >= o.length) return {
+          done: true
+        };
+        return {
+          done: false,
+          value: o[i++]
+        };
+      };
+    }
+
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  var _excluded$7 = ["title", "children"];
+
+  function Tooltip(_ref) {
+    var title = _ref.title,
+        children = _ref.children,
+        rest = _objectWithoutPropertiesLoose(_ref, _excluded$7);
+
+    if (!title) return children;
+
+    var config = _extends({
+      theme: 'light',
+      animation: 'scale',
+      content: title,
+      trigger: 'mouseenter'
+    }, rest);
+
+    return /*#__PURE__*/jsxRuntime.jsx(Tippy__default["default"], _extends({}, config, {
+      children: children
+    }));
+  }
+
+  var Tooltip$1 = /*#__PURE__*/React.memo(Tooltip);
+
+  var _excluded$6 = ["theme"],
+      _excluded2$2 = ["children", "className", "size"];
+  var Root$1 = styles.styled(system.Box)(function (_ref) {
+    var theme = _ref.theme,
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
+
+    return {
+      width: props.size,
+      height: props.size,
+      minWidth: props.size,
+      minHeight: props.size,
+      fontSize: props.size,
+      lineHeight: props.size,
+      color: {
+        primary: theme.palette.primary.main,
+        secondary: theme.palette.secondary.main,
+        info: theme.palette.info.main,
+        success: theme.palette.success.main,
+        warning: theme.palette.warning.main,
+        action: theme.palette.action.active,
+        error: theme.palette.error.main,
+        disabled: theme.palette.action.disabled,
+        inherit: undefined
+      }[props.color]
+    };
+  });
+  var FuseSvgIcon = /*#__PURE__*/React.forwardRef(function (props, ref) {
+    if (!props.children.includes(':')) {
+      return /*#__PURE__*/jsxRuntime.jsx(Icon__default["default"], _extends({
+        ref: ref
+      }, props));
+    }
+
+    var iconPath = props.children.replace(':', '.svg#');
+    return /*#__PURE__*/jsxRuntime.jsx(Root$1, _extends({}, props, {
+      component: "svg",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 100 100",
+      className: clsx__default["default"]('shrink-0 fill-current ', props.className),
+      ref: ref,
+      size: props.size,
+      sx: props.sx,
+      color: props.color,
+      children: /*#__PURE__*/jsxRuntime.jsx("use", {
+        xlinkHref: "assets/icons/" + iconPath
+      })
+    }));
+  });
+  FuseSvgIcon.propTypes = {
+    children: PropTypes__default["default"].string,
+    size: PropTypes__default["default"].oneOfType([PropTypes__default["default"].number, PropTypes__default["default"].string]),
+    sx: PropTypes__default["default"].object,
+    color: PropTypes__default["default"].oneOf(['inherit', 'disabled', 'primary', 'secondary', 'action', 'error', 'info', 'success', 'warning'])
+  };
+  FuseSvgIcon.defaultProps = {
+    children: '',
+    size: 24,
+    sx: {},
+    color: 'inherit'
+  };
+
+  function MySvgIcon(_ref2) {
+    var children = _ref2.children,
+        className = _ref2.className,
+        size = _ref2.size,
+        props = _objectWithoutPropertiesLoose(_ref2, _excluded2$2);
+
+    var customProps = {
+      children: children
+    };
+
+    if (children && lodash.includes(children, 'fontawesome-')) {
+      customProps.children = undefined;
+      customProps.baseClassName = '';
+      customProps.className = lodash.replace(children, 'fontawesome-', 'fa-');
+      customProps.className = lodash.replace(customProps.className, ':', ' fa-');
+      customProps.className = ['w-inherit', customProps.className, className].join(' ');
+      if (size) customProps.sx = {
+        width: size,
+        height: size,
+        minWidth: size,
+        minHeight: size,
+        fontSize: size
+      };
+    }
+
+    if (className && lodash.some(['fa-solid', 'fa-regular', 'fa-light', 'fa-thin', 'fa-duotone'], function (prefix) {
+      return lodash.includes(className, prefix);
+    })) {
+      customProps.baseClassName = '';
+    }
+
+    return /*#__PURE__*/jsxRuntime.jsx(FuseSvgIcon, _extends({
+      className: className
+    }, customProps, {
+      size: size
+    }, props));
+  }
+
+  var components$1 = {};
+  function registerLayout(name, Component) {
+    components$1[name] = Component;
+  }
+  function Layout(props) {
+    var C = components$1[props.name];
+    return C ? /*#__PURE__*/jsxRuntime.jsx(C, _extends({}, props)) : /*#__PURE__*/jsxRuntime.jsx(material.Box, {
+      p: 2,
+      children: "Not Found"
+    });
+  }
+
+  var _excluded$5 = ["leftIcon", "rightIcon", "label", "MenuItemProps", "className"];
+  var StyledMenuItem = styles.styled(material.MenuItem)({});
+  var MenuItem = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
+    var leftIcon = _ref.leftIcon,
+        rightIcon = _ref.rightIcon,
+        label = _ref.label,
+        className = _ref.className,
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
+
+    return /*#__PURE__*/jsxRuntime.jsxs(StyledMenuItem, _extends({
+      ref: ref,
+      className: className
+    }, props, {
+      children: [leftIcon && /*#__PURE__*/jsxRuntime.jsx(material.ListItemIcon, {
+        children: leftIcon
+      }), /*#__PURE__*/jsxRuntime.jsx(material.ListItemText, {
+        children: label
+      }), rightIcon && /*#__PURE__*/jsxRuntime.jsx(material.ListItemIcon, {
+        className: "flex justify-end",
+        children: rightIcon
+      })]
+    }));
+  });
+  var MenuItem$1 = MenuItem;
+
+  var _excluded$4 = ["parentMenuOpen", "label", "rightIcon", "leftIcon", "children", "className", "tabIndex", "ContainerProps"],
+      _excluded2$1 = ["ref"];
+  var SubMenuItem = /*#__PURE__*/React__default["default"].forwardRef(function SubMenu(props, ref) {
+    var parentMenuOpen = props.parentMenuOpen,
+        label = props.label,
+        _props$rightIcon = props.rightIcon,
+        rightIcon = _props$rightIcon === void 0 ? /*#__PURE__*/jsxRuntime.jsx(iconsMaterial.ChevronRight, {
+      color: "disabled",
+      fontSize: "small"
+    }) : _props$rightIcon,
+        _props$leftIcon = props.leftIcon,
+        leftIcon = _props$leftIcon === void 0 ? null : _props$leftIcon,
+        children = props.children,
+        className = props.className,
+        tabIndexProp = props.tabIndex,
+        _props$ContainerProps = props.ContainerProps,
+        ContainerPropsProp = _props$ContainerProps === void 0 ? {} : _props$ContainerProps,
+        MenuItemProps = _objectWithoutPropertiesLoose(props, _excluded$4);
+
+    var containerRefProp = ContainerPropsProp.ref,
+        ContainerProps = _objectWithoutPropertiesLoose(ContainerPropsProp, _excluded2$1);
+
+    var menuItemRef = React.useRef(null);
+    React.useImperativeHandle(ref, function () {
+      return menuItemRef.current;
+    });
+    var containerRef = React.useRef(null);
+    React.useImperativeHandle(containerRefProp, function () {
+      return containerRef.current;
+    });
+    var menuContainerRef = React.useRef(null);
+
+    var _useState = React.useState(false),
+        isSubMenuOpen = _useState[0],
+        setIsSubMenuOpen = _useState[1];
+
+    var handleMouseEnter = function handleMouseEnter(e) {
+      setIsSubMenuOpen(true);
+
+      if (ContainerProps.onMouseEnter) {
+        ContainerProps.onMouseEnter(e);
+      }
+    };
+
+    var handleMouseLeave = function handleMouseLeave(e) {
+      setIsSubMenuOpen(false);
+
+      if (ContainerProps.onMouseLeave) {
+        ContainerProps.onMouseLeave(e);
+      }
+    }; // Check if any immediate children are active
+
+
+    var isSubmenuFocused = function isSubmenuFocused() {
+      var active = containerRef.current.ownerDocument.activeElement;
+
+      for (var _iterator = _createForOfIteratorHelperLoose(menuContainerRef.current.children), _step; !(_step = _iterator()).done;) {
+        var child = _step.value;
+
+        if (child === active) {
+          return true;
+        }
+      }
+
+      return false;
+    };
+
+    var handleFocus = function handleFocus(e) {
+      if (e.target === containerRef.current) {
+        setIsSubMenuOpen(true);
+      }
+
+      if (ContainerProps.onFocus) {
+        ContainerProps.onFocus(e);
+      }
+    };
+
+    var handleKeyDown = function handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        return;
+      }
+
+      if (isSubmenuFocused()) {
+        e.stopPropagation();
+      }
+
+      var active = containerRef.current.ownerDocument.activeElement;
+
+      if (e.key === 'ArrowLeft' && isSubmenuFocused()) {
+        containerRef.current.focus();
+      }
+
+      if (e.key === 'ArrowRight' && e.target === containerRef.current && e.target === active) {
+        var firstChild = menuContainerRef.current.children[0];
+        firstChild.focus();
+      }
+    };
+
+    var open = isSubMenuOpen && parentMenuOpen; // Root element must have a `tabIndex` attribute for keyboard navigation
+
+    var tabIndex;
+
+    if (!props.disabled) {
+      tabIndex = tabIndexProp !== undefined ? tabIndexProp : -1;
+    }
+
+    return /*#__PURE__*/jsxRuntime.jsxs("div", _extends({}, ContainerProps, {
+      ref: containerRef,
+      onFocus: handleFocus,
+      tabIndex: tabIndex,
+      onMouseEnter: handleMouseEnter,
+      onMouseLeave: handleMouseLeave,
+      onKeyDown: handleKeyDown,
+      children: [/*#__PURE__*/jsxRuntime.jsx(MenuItem$1, {
+        MenuItemProps: MenuItemProps,
+        className: className,
+        ref: menuItemRef,
+        leftIcon: leftIcon,
+        rightIcon: rightIcon,
+        label: label
+      }), /*#__PURE__*/jsxRuntime.jsx(Menu__default["default"] // Set pointer events to 'none' to prevent the invisible Popover div
+      // from capturing events for clicks and hovers
+      , {
+        style: {
+          pointerEvents: 'none'
+        },
+        anchorEl: menuItemRef.current,
+        anchorOrigin: {
+          vertical: 'top',
+          horizontal: 'right'
+        },
+        transformOrigin: {
+          vertical: 'top',
+          horizontal: 'left'
+        },
+        open: open,
+        autoFocus: false,
+        disableAutoFocus: true,
+        disableEnforceFocus: true,
+        onClose: function onClose() {
+          setIsSubMenuOpen(false);
+        },
+        children: /*#__PURE__*/jsxRuntime.jsx("div", {
+          ref: menuContainerRef,
+          style: {
+            pointerEvents: 'auto'
+          },
+          children: children
+        })
+      })]
+    }));
+  }); // SubMenu.displayName = 'SubMenu';
+
+  var SubMenuItem$1 = SubMenuItem;
+
+  var _excluded$3 = ["divider"],
+      _excluded2 = ["items", "callback"];
+
+  function MenuItems(_ref) {
+    var items = _ref.items,
+        handleClose = _ref.onClose,
+        open = _ref.open;
+    return items.map(function (_ref2, key) {
+      var divider = _ref2.divider,
+          item = _objectWithoutPropertiesLoose(_ref2, _excluded$3);
+
+      if (divider) return /*#__PURE__*/jsxRuntime.jsx(material.Divider, {
+        sx: {
+          my: 0.5
+        }
+      }, key);
+
+      var childItems = item.items,
+          callback = item.callback,
+          rest = _objectWithoutPropertiesLoose(item, _excluded2);
+
+      if (childItems && childItems.length > 0) {
+        return /*#__PURE__*/jsxRuntime.jsx(SubMenuItem$1, _extends({}, rest, {
+          parentMenuOpen: open,
+          children: /*#__PURE__*/jsxRuntime.jsx(MenuItems, {
+            open: open,
+            items: childItems,
+            onClose: handleClose
+          })
+        }), key);
+      }
+
+      return /*#__PURE__*/jsxRuntime.jsx(MenuItem$1, _extends({}, rest, {
+        onClick: function onClick() {
+          handleClose();
+          callback && callback();
+        }
+      }), key);
+    });
+  }
+
+  MenuItems.propTypes = {
+    items: PropTypes__default["default"].array
+  };
+
+  function ContextMenu(_ref) {
+    var position = _ref.position,
+        items = _ref.items,
+        children = _ref.children,
+        onClose = _ref.onClose;
+    var wrapperRef = React.useRef(null);
+
+    var _useState = React.useState(null),
+        contextMenu = _useState[0],
+        setContextMenu = _useState[1];
+
+    var open = React.useMemo(function () {
+      return contextMenu !== null;
+    }, [contextMenu]);
+    var anchorPosition = React.useMemo(function () {
+      return open ? {
+        top: contextMenu.mouseY,
+        left: contextMenu.mouseX
+      } : undefined;
+    }, [open, contextMenu]);
+    var handleClose = React.useCallback(function () {
+      onClose();
+      open && setContextMenu(null);
+    }, [open]);
+
+    var handleContextMenu = function handleContextMenu(e) {
+      e.preventDefault();
+      setContextMenu(contextMenu === null ? {
+        mouseX: e.clientX + 2,
+        mouseY: e.clientY - 6
+      } : null);
+    };
+
+    React.useEffect(function () {
+      setContextMenu(position);
+    }, [position]);
+    return /*#__PURE__*/jsxRuntime.jsxs("div", {
+      ref: wrapperRef,
+      onContextMenu: handleContextMenu,
+      children: [/*#__PURE__*/jsxRuntime.jsx(material.Menu, {
+        open: open,
+        onClose: handleClose,
+        anchorReference: "anchorPosition",
+        anchorPosition: anchorPosition,
+        disableAutoFocusItem: true,
+        children: !lodash.isEmpty(items) && /*#__PURE__*/jsxRuntime.jsx(MenuItems, {
+          open: open,
+          items: items,
+          onClose: handleClose
+        })
+      }), children]
+    });
+  }
+
+  ContextMenu.propTypes = {
+    items: PropTypes__default["default"].array
+  };
+
+  var _excluded$2 = ["icon", "label", "visible", "onClick", "btnSize", "iconSize", "items", "color"];
+
+  function ToolbarItem(props) {
+    var icon = props.icon,
+        label = props.label,
+        _props$visible = props.visible,
+        visible = _props$visible === void 0 ? true : _props$visible,
+        onClick = props.onClick,
+        btnSize = props.btnSize,
+        iconSize = props.iconSize,
+        _props$items = props.items,
+        items = _props$items === void 0 ? [] : _props$items,
+        color = props.color;
+        _objectWithoutPropertiesLoose(props, _excluded$2);
+
+    var tooltip = lodash.isBoolean(props.tooltip) ? label : props.tooltip;
+    var shownContent = React.useMemo(function () {
+      return visible && icon;
+    }, [visible, icon]);
+
+    var _useState = React.useState(null),
+        anchorEl = _useState[0],
+        setAnchorEl = _useState[1];
+
+    var open = Boolean(anchorEl);
+
+    var handleClick = function handleClick(e) {
+      return lodash.isEmpty(items) ? onClick && onClick(e) : setAnchorEl(e.currentTarget);
+    };
+
+    var handleClose = function handleClose(e, callback) {
+      setAnchorEl(null);
+      callback && callback();
+    };
+
+    var content = shownContent && /*#__PURE__*/jsxRuntime.jsx(material.IconButton, {
+      size: btnSize,
+      onClick: handleClick,
+      color: color,
+      children: icon && /*#__PURE__*/jsxRuntime.jsx(MySvgIcon, {
+        size: iconSize,
+        children: icon
+      })
+    });
+
+    var menuContent = shownContent && !lodash.isEmpty(items) && /*#__PURE__*/jsxRuntime.jsx(material.Menu, {
+      open: open,
+      anchorEl: anchorEl,
+      onClose: function onClose(e) {
+        return handleClose();
+      },
+      transformOrigin: {
+        horizontal: 'right',
+        vertical: 'top'
+      },
+      anchorOrigin: {
+        horizontal: 'right',
+        vertical: 'bottom'
+      },
+      children: items.map(function (item, key) {
+        return /*#__PURE__*/jsxRuntime.jsxs(material.MenuItem, {
+          onClick: function onClick(e) {
+            return handleClose(e, item.onClick);
+          },
+          children: [item.icon && /*#__PURE__*/jsxRuntime.jsx(material.ListItemIcon, {
+            children: /*#__PURE__*/jsxRuntime.jsx(MySvgIcon, {
+              children: item.icon
+            })
+          }), item.label && /*#__PURE__*/jsxRuntime.jsx(material.ListItemText, {
+            children: item.label
+          })]
+        }, key);
+      })
+    });
+
+    if (tooltip && shownContent) return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+      children: [/*#__PURE__*/jsxRuntime.jsx(Tooltip$1, {
+        title: tooltip,
+        children: content
+      }), menuContent]
+    });
+    return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+      children: [content, menuContent]
+    });
+  }
+
+  ToolbarItem.defautProps = {
+    iconSize: 18
+  };
+
+  function shallow(objA, objB) {
+    if (Object.is(objA, objB)) {
+      return true;
+    }
+
+    if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+      return false;
+    }
+
+    var keysA = Object.keys(objA);
+
+    if (keysA.length !== Object.keys(objB).length) {
+      return false;
+    }
+
+    for (var i = 0; i < keysA.length; i++) {
+      if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !Object.is(objA[keysA[i]], objB[keysA[i]])) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+  function isClassComponent(component) {
+    return typeof component === 'function' && !!component.prototype.isReactComponent;
+  }
+  function isFunctionComponent(component) {
+    return typeof component === 'function' && String(component).includes('return React.createElement');
+  }
+  function isReactComponent(component) {
+    return isClassComponent(component) || isFunctionComponent(component);
+  }
+
+  var _excluded$1 = ["case", "defaultCase"];
+
+  function Element(_ref) {
+    var Component = _ref["case"],
+        DefaultComponent = _ref.defaultCase,
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
+
+    if ( /*#__PURE__*/React.isValidElement(Component)) return Component;
+    if (isReactComponent(Component)) return /*#__PURE__*/jsxRuntime.jsx(Component, {});
+    return /*#__PURE__*/jsxRuntime.jsx(DefaultComponent, _extends({}, props, Component));
+  }
+
+  function Toolbar(props) {
+    var sx = props.sx,
+        contentProps = props.contentProps,
+        leftItems = props.leftItems,
+        leftContentProps = props.leftContentProps,
+        centerItems = props.centerItems,
+        centerContentProps = props.centerContentProps,
+        rightItems = props.rightItems,
+        rightContentProps = props.rightContentProps;
+    var itemProps = lodash.pick(props, ['btnSize', 'iconSize']);
+    return /*#__PURE__*/jsxRuntime.jsxs(material.Stack, {
+      sx: sx,
+      direction: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      children: [/*#__PURE__*/jsxRuntime.jsx(material.Stack, _extends({
+        direction: "row"
+      }, contentProps, leftContentProps, {
+        children: leftItems.length > 0 && leftItems.map(function (item, key) {
+          return /*#__PURE__*/jsxRuntime.jsx(Element, _extends({
+            "case": item,
+            defaultCase: ToolbarItem
+          }, itemProps), key);
+        })
+      })), /*#__PURE__*/jsxRuntime.jsx(material.Stack, _extends({
+        direction: "row"
+      }, contentProps, centerContentProps, {
+        children: centerItems.length > 0 && centerItems.map(function (item, key) {
+          return /*#__PURE__*/jsxRuntime.jsx(Element, _extends({
+            "case": item,
+            defaultCase: ToolbarItem
+          }, itemProps), key);
+        })
+      })), /*#__PURE__*/jsxRuntime.jsx(material.Stack, _extends({
+        direction: "row"
+      }, contentProps, rightContentProps, {
+        children: rightItems.length > 0 && rightItems.map(function (item, key) {
+          return /*#__PURE__*/jsxRuntime.jsx(Element, _extends({
+            "case": item,
+            defaultCase: ToolbarItem
+          }, itemProps), key);
+        })
+      }))]
+    });
+  }
+
+  Toolbar.propTypes = {
+    leftItems: PropTypes__default["default"].array,
+    centerItems: PropTypes__default["default"].array,
+    rightItems: PropTypes__default["default"].array
+  };
+  Toolbar.defaultProps = {
+    sx: {
+      p: 1
+    },
+    contentProps: {
+      spacing: 0.5
+    },
+    leftItems: [],
+    centerItems: [],
+    rightItems: []
+  };
+
+  var useComponentStore = create__default["default"](function (set) {
+    return {
+      components: {},
+      registerComponent: function registerComponent(type, Component) {
+        return set(produce__default["default"](function (state) {
+          state.components[type] = Component;
+        }));
+      }
+    };
+  });
+  var components = useComponentStore.getState().components;
+  function registerComponent(name, Component) {
+    useComponentStore.getState().registerComponent(name, Component);
+  }
+  function Component(props) {
+    var C = useComponentStore(function (state) {
+      return state.components[props.type];
+    }, shallow);
+    return C ? /*#__PURE__*/jsxRuntime.jsx(C, _extends({}, props)) : null;
+  }
+
+  var _excluded = ["theme"];
+  var Root = material.styled('div')(function (_ref) {
+    var theme = _ref.theme,
+        props = _objectWithoutPropertiesLoose(_ref, _excluded);
+
+    return {
+      display: 'flex',
+      flexDirection: 'column',
+      minWidth: 0,
+      minHeight: '100%',
+      position: 'relative',
+      flex: '1 1 auto',
+      width: '100%',
+      height: 'auto',
+      backgroundColor: theme.palette.background.paper,
+      '& .PageSide-wrapper': _extends({
+        display: 'flex',
+        flexDirection: 'row',
+        flex: '1 1 auto',
+        minWidth: 0,
+        height: '100%'
+      }, props.scroll === 'content' && {
+        // backgroundColor: 'red',
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        right: 0,
+        left: 0 // overflow: 'hidden',
+
+      }),
+      '& .PageSide-contentWrapper': {
+        // backgroundColor: 'yellow',
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        height: '100%',
+        flex: '1 1 auto' // overflow: 'hidden',
+
+      },
+      '& .PageSide-content': {
+        display: 'flex',
+        flexDirection: 'column',
+        flex: '1 1 auto',
+        minHeight: 0,
+        overflowY: 'auto'
+      }
+    };
+  });
+
+  function PageSide(props) {
+    var _props$contentWrapper, _props$toolbar, _props$subToolbar;
+
+    React.useRef(null);
+    React.useRef(null);
+    React.useRef(null);
+    var shownToolbar = React.useMemo(function () {
+      return lodash.some([props.leftToolbarItems, props.centerToolbarItems, props.rightToolbarItems], function (v) {
+        return !lodash.isEmpty(v);
+      });
+    }, [props.leftToolbarItems, props.centerToolbarItems, props.rightToolbarItems]);
+    var toolbarProps = React.useMemo(function () {
+      return _extends({}, props.toolbarProps, {
+        leftItems: props.leftToolbarItems,
+        centerItems: props.centerToolbarItems,
+        rightItems: props.rightToolbarItems
+      });
+    }, [props.leftToolbarItems, props.centerToolbarItems, props.rightToolbarItems]);
+    var shownSubToolbar = React.useMemo(function () {
+      return lodash.some([props.leftSubToolbarItems, props.centerSubToolbarItems, props.rightSubToolbarItems], function (v) {
+        return !lodash.isEmpty(v);
+      });
+    }, [props.leftSubToolbarItems, props.centerSubToolbarItems, props.rightSubToolbarItems]);
+    var subToolbarProps = React.useMemo(function () {
+      return _extends({}, props.subToolbarProps, {
+        leftItems: props.leftSubToolbarItems,
+        centerItems: props.centerSubToolbarItems,
+        rightItems: props.rightSubToolbarItems
+      });
+    }, [props.leftSubToolbarItems, props.centerSubToolbarItems, props.rightSubToolbarItems]);
+    var headerProps = {
+      title: props.headerTitle
+    };
+    return /*#__PURE__*/jsxRuntime.jsxs(Root, {
+      className: clsx__default["default"]('PageSide-root', "PageSide-scroll-" + props.scroll, props.className) // ref={rootRef}
+      ,
+      scroll: props.scroll,
+      leftsidebarwidth: props.leftSidebarWidth,
+      rightsidebarwidth: props.rightSidebarWidth,
+      children: [/*#__PURE__*/jsxRuntime.jsxs("div", {
+        className: "PageSide-wrapper",
+        children: [props.leftSidebarContent && /*#__PURE__*/jsxRuntime.jsx("div", {
+          children: "leftSidebarContent"
+        }), /*#__PURE__*/jsxRuntime.jsxs(material.Stack, _extends({}, props.contentWrapperProps, {
+          className: clsx__default["default"]("PageSide-contentWrapper", (_props$contentWrapper = props.contentWrapperProps) == null ? void 0 : _props$contentWrapper.className),
+          divider: /*#__PURE__*/jsxRuntime.jsx(material.Divider, {}),
+          children: [props.header && (lodash.isBoolean(props.header) ? /*#__PURE__*/jsxRuntime.jsx(Component, _extends({
+            type: "PageSideHeader"
+          }, headerProps)) : props.header), props.subHeader && props.subHeader, (props.toolbar || shownToolbar) && ((_props$toolbar = props.toolbar) != null ? _props$toolbar : /*#__PURE__*/jsxRuntime.jsx(Toolbar, _extends({}, toolbarProps))), (props.subToolbar || shownSubToolbar) && ((_props$subToolbar = props.subToolbar) != null ? _props$subToolbar : /*#__PURE__*/jsxRuntime.jsx(Toolbar, _extends({}, subToolbarProps))), props.content && /*#__PURE__*/jsxRuntime.jsx("div", {
+            className: clsx__default["default"]('PageSide-content container'),
+            children: props.content
+          }), props.footer && /*#__PURE__*/jsxRuntime.jsx("div", {
+            children: "Footer"
+          })]
+        }))]
+      }), props.rightSidebarContent && /*#__PURE__*/jsxRuntime.jsx("div", {
+        children: "rightSidebarContent"
+      })]
+    });
+  }
+
+  PageSide.propTypes = {
+    contentWrapperProps: PropTypes__namespace.object,
+    leftSidebarContent: PropTypes__namespace.node,
+    leftSidebarVariant: PropTypes__namespace.node,
+    rightSidebarContent: PropTypes__namespace.node,
+    rightSidebarVariant: PropTypes__namespace.node,
+    header: PropTypes__namespace.oneOfType([PropTypes__namespace.node, PropTypes__namespace.bool]),
+    subHeader: PropTypes__namespace.node,
+    toolbar: PropTypes__namespace.node,
+    toolbarProps: PropTypes__namespace.object,
+    leftToolbarItems: PropTypes__namespace.array,
+    centerToolbarItems: PropTypes__namespace.array,
+    rightToolbarItems: PropTypes__namespace.array,
+    subToolbar: PropTypes__namespace.node,
+    subToolbarProps: PropTypes__namespace.object,
+    leftSubToolbarItems: PropTypes__namespace.array,
+    centerSubToolbarItems: PropTypes__namespace.array,
+    rightSubToolbarItems: PropTypes__namespace.array,
+    content: PropTypes__namespace.node,
+    scroll: PropTypes__namespace.oneOf(['normal', 'page', 'content']),
+    leftSidebarOpen: PropTypes__namespace.bool,
+    rightSidebarOpen: PropTypes__namespace.bool,
+    leftSidebarWidth: PropTypes__namespace.number,
+    rightSidebarWidth: PropTypes__namespace.number,
+    rightSidebarOnClose: PropTypes__namespace.func,
+    leftSidebarOnClose: PropTypes__namespace.func
+  };
+  PageSide.defaultProps = {
+    classes: {},
+    scroll: 'page',
+    leftSidebarOpen: false,
+    rightSidebarOpen: false,
+    rightSidebarWidth: 240,
+    leftSidebarWidth: 240
+  };
+
+  var emitter = nanoevents.createNanoEvents();
+  var emitter$1 = emitter;
+
+  exports.Component = Component;
+  exports.ContextMenu = ContextMenu;
+  exports.FuseSvgIcon = MySvgIcon;
+  exports.Layout = Layout;
+  exports.PageSide = PageSide;
+  exports.Toolbar = Toolbar;
+  exports.ToolbarItem = ToolbarItem;
+  exports.Tooltip = Tooltip$1;
+  exports.components = components;
+  exports.emitter = emitter$1;
+  exports.layoutComponents = components$1;
+  exports.registerComponent = registerComponent;
+  exports.registerLayout = registerLayout;
+
+}));
 //# sourceMappingURL=index.umd.js.map

@@ -1,3 +1,5 @@
+import { isValidElement } from 'react'
+
 export function shallow(objA, objB) {
   if (Object.is(objA, objB)) {
     return true
@@ -23,4 +25,37 @@ export function shallow(objA, objB) {
     }
   }
   return true
+}
+
+export function isClassComponent(component) {
+  return (
+    typeof component === 'function' &&
+    !!component.prototype.isReactComponent
+  )
+}
+
+export function isFunctionComponent(component) {
+  return (
+    typeof component === 'function' &&
+    String(component).includes('return React.createElement')
+  )
+}
+
+export function isReactComponent(component) {
+  return (
+    isClassComponent(component) ||
+    isFunctionComponent(component)
+  )
+}
+
+export function isElement(element) {
+  return isValidElement(element);
+}
+
+function isDOMTypeElement(element) {
+  return isElement(element) && typeof element.type === 'string';
+}
+
+function isCompositeTypeElement(element) {
+  return isElement(element) && typeof element.type === 'function';
 }
