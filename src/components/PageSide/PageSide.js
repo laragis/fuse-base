@@ -3,8 +3,9 @@ import * as PropTypes from 'prop-types'
 import clsx from 'clsx'
 import { isBoolean, isEmpty, some } from 'lodash'
 import Toolbar from '../Toolbar/Toolbar'
-import { styled, Divider, Stack } from '@mui/material'
+import { styled, Divider, Stack, LinearProgress } from '@mui/material'
 import Component from '../Component/Component'
+
 
 const Root = styled('div')(({ theme, ...props }) => ({
   display: 'flex',
@@ -122,6 +123,7 @@ function PageSide(props) {
           )}
           {props.content && (
             <div className={clsx('PageSide-content container')}>
+              {props.loading && <LinearProgress />}
               {props.content}
             </div>
           )}
