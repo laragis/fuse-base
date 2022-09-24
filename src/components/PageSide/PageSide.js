@@ -24,7 +24,7 @@ const Root = styled('div')(({ theme, ...props }) => ({
     flex: '1 1 auto',
     minWidth: 0,
     height: '100%',
-    // backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.default,
 
     ...(props.scroll === 'content' && {
       // backgroundColor: 'red',
