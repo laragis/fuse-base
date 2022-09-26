@@ -24,7 +24,6 @@ const Root = styled('div')(({ theme, ...props }) => ({
     flex: '1 1 auto',
     minWidth: 0,
     height: '100%',
-    backgroundColor: theme.palette.background.default,
 
     ...(props.scroll === 'content' && {
       // backgroundColor: 'red',
@@ -53,6 +52,7 @@ const Root = styled('div')(({ theme, ...props }) => ({
     flex: '1 1 auto',
     minHeight: 0,
     overflowY: 'auto',
+    backgroundColor: theme.palette.background.default,
   },
 
 }))
@@ -122,7 +122,7 @@ function PageSide(props) {
             props.subToolbar ?? <Toolbar {...subToolbarProps}/>
           )}
           {props.content && (
-            <div className={clsx('PageSide-content container')}>
+            <div className={clsx(clsx('PageSide-content container', props.contentProps?.className))}>
               {props.loading && <LinearProgress />}
               {props.content}
             </div>
