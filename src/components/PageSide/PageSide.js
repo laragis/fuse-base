@@ -3,9 +3,8 @@ import * as PropTypes from 'prop-types'
 import clsx from 'clsx'
 import { isBoolean, isEmpty, some } from 'lodash'
 import Toolbar from '../Toolbar/Toolbar'
-import { styled, Divider, Stack, LinearProgress } from '@mui/material'
+import { Divider, LinearProgress, Stack, styled } from '@mui/material'
 import Component from '../Component/Component'
-
 
 const Root = styled('div')(({ theme, ...props }) => ({
   display: 'flex',
@@ -58,13 +57,15 @@ const Root = styled('div')(({ theme, ...props }) => ({
 }))
 
 function PageSide(props) {
-  const leftSidebarRef = useRef(null)
-  const rightSidebarRef = useRef(null)
-  const rootRef = useRef(null)
-
   const shownToolbar = useMemo(() => some([
-    props.leftToolbarItems, props.centerToolbarItems, props.rightToolbarItems
-  ], v => !isEmpty(v)), [props.leftToolbarItems, props.centerToolbarItems, props.rightToolbarItems])
+    props.leftToolbarItems,
+    props.centerToolbarItems,
+    props.rightToolbarItems
+  ], v => !isEmpty(v)), [
+    props.leftToolbarItems,
+    props.centerToolbarItems,
+    props.rightToolbarItems
+  ])
 
   const toolbarProps = useMemo(() => ({
     ...props.toolbarProps,
@@ -173,10 +174,6 @@ PageSide.defaultProps = {
   rightSidebarOpen: false,
   rightSidebarWidth: 240,
   leftSidebarWidth: 240
-}
-
-function register(){
-
 }
 
 export default PageSide
