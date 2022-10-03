@@ -40,7 +40,7 @@ function ButtonMenu({items, anchorEl, setAnchorEl}){
 }
 
 const IconButton = React.forwardRef((props, ref) => {
-  const { tooltip, color, icon, onClick, children, visible: inVisible, fontSize, items: inItems } = props
+  const { tooltip, color, icon, onClick, children, visible: inVisible, fontSize, items: inItems, type } = props
   const [anchorEl, setAnchorEl] = useState(null)
 
   const items = useMemo(() => reject(inItems, i => i.visible === false), [inItems])
@@ -62,7 +62,7 @@ const IconButton = React.forwardRef((props, ref) => {
   return shownContent && (
     <>
       <Tooltip title={tooltip}>
-        <MuiIconButton onClick={handleClick} color={color} ref={ref}>
+        <MuiIconButton onClick={handleClick} color={color} type={type} ref={ref}>
           {children ? children : (
             <FuseSvgIcon {...iconProps}>{icon}</FuseSvgIcon>
           )}

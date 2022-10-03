@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 
 const BadgeRoot = styled(Box)(({ theme, ...props }) => ({
-  display: 'flex',
+  display: 'inline-block',
   justifyContent: 'center',
   alignContent: 'center',
   color: 'white',
