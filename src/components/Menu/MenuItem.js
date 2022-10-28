@@ -7,7 +7,7 @@ const StyledMenuItem = styled(MuiMenuItem)({
 })
 
 const MenuItem = forwardRef(
-  ({ leftIcon, rightIcon, label, MenuItemProps, className, ...props }, ref) => {
+  ({ leftIcon, rightIcon, label, MenuItemProps, className, visible, ...props }, ref) => {
     return (
       <StyledMenuItem
         ref={ref}

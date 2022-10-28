@@ -9,7 +9,7 @@ function MenuItems({ items, onClose: handleClose, open }) {
 
     if(divider) return <Divider key={key} sx={{my: 0.5}}/>
 
-    const { items: childItems, callback, ...rest } = item
+    const { items: childItems, onClick, ...rest } = item
 
     if (childItems && childItems.length > 0) {
       return (
@@ -33,7 +33,7 @@ function MenuItems({ items, onClose: handleClose, open }) {
         {...rest}
         onClick={() => {
           handleClose()
-          callback && callback();
+          onClick && onClick();
         }}
       />
     )

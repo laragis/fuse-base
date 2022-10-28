@@ -14,8 +14,9 @@ function ContextMenu({ position, items, children, onClose }) {
     ? { top: contextMenu.mouseY, left: contextMenu.mouseX }
     : undefined, [open, contextMenu])
 
+
   const handleClose = useCallback(() => {
-    onClose()
+    onClose && onClose()
     open && setContextMenu(null)
   }, [open])
 
@@ -33,7 +34,11 @@ function ContextMenu({ position, items, children, onClose }) {
   }
 
   useEffect(() => {
-    setContextMenu(position)
+    if(position) setContextMenu({
+      mouseX: position.clientX + 2,
+      mouseY: position.clientY - 6,
+    })
+
   }, [position])
 
   return (
@@ -41,15 +46,18 @@ function ContextMenu({ position, items, children, onClose }) {
       ref={wrapperRef}
       onContextMenu={handleContextMenu}
     >
-      <Menu
-        open={open}
-        onClose={handleClose}
-        anchorReference="anchorPosition"
-        anchorPosition={anchorPosition}
-        disableAutoFocusItem={true}
-      >
-        {!isEmpty(items) && <MenuItems open={open} items={items} onClose={handleClose}/>}
-      </Menu>
+      {!isEmpty(items) && (
+        <Menu
+          open={open}
+          onClose={handleClose}
+          anchorReference="anchorPosition"
+          anchorPosition={anchorPosition}
+          disableAutoFocusItem={true}
+        >
+          <MenuItems open={open} items={items} onClose={handleClose}/>
+        </Menu>
+      )}
+
       {children}
     </div>
   )
