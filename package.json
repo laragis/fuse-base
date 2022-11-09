@@ -40,6 +40,7 @@
     "lodash": "^4.17.21",
     "nanoevents": "^7.0.1",
     "prop-types": "15.8.1",
+    "react-device-detect": "^2.2.2",
     "react-use": "^17.4.0",
     "tippy.js": "^6.3.7",
     "zustand": "^4.1.1"
