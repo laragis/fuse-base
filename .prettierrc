@@ -1,5 +1,1 @@
-{
-  "endOfLine": "auto",
-  "semi": false,
-  "singleQuote": true
-}
+"@egoist/prettier-config"
