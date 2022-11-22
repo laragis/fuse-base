@@ -4,9 +4,15 @@ import Icon from '../Icon'
 import Tooltip from '../Tooltip'
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
+import {styled} from "@mui/system";
+
+const IconButtonRoot = styled(MuiIconButton, {
+  background: 'red'
+})(({theme, ownerState}) => {
+
+})
 
 const IconButton = forwardRef((inProps, ref) => {
-
   const {
     tooltip,
     icon,
@@ -14,11 +20,13 @@ const IconButton = forwardRef((inProps, ref) => {
     ...other
   } = inProps;
 
+  console.log(other)
+
   return (
     <Tooltip title={tooltip}>
-      <MuiIconButton {...other}>
+      <IconButtonRoot {...other}>
         <Icon fontSize={iconFontSize}>{icon}</Icon>
-      </MuiIconButton>
+      </IconButtonRoot>
     </Tooltip>
   );
 });
