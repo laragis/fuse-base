@@ -1,4 +1,4 @@
-import generateUtilityClass from "@mui/utils/generateUtilityClass/index.js";
+import { unstable_generateUtilityClass as generateUtilityClass } from "@mui/utils";
 
 export function getIconUtilityClass(slot: string): string {
   return generateUtilityClass('FuseIcon', slot);

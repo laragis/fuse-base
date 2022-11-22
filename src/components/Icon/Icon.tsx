@@ -2,10 +2,10 @@
 import clsx from 'clsx';
 import {forwardRef} from 'react';
 import PropTypes from 'prop-types';
-import {styled} from '@mui/material/styles/index.js';
-import {Icon} from '@mui/material';
+import MuiIcon from '@mui/material/Icon/index.js';
 import {some} from 'lodash'
 import {useThemeProps} from "@mui/system";
+import {styled} from "@mui/system";
 import {unstable_composeClasses as composeClasses} from '@mui/base';
 import {getIconUtilityClass} from "./iconClasses";
 
@@ -19,9 +19,16 @@ const useUtilityClasses = (ownerState) => {
   return composeClasses(slots, getIconUtilityClass, classes);
 };
 
-const StyledIcon = styled(Icon, {
+const StyledIcon = styled(MuiIcon, {
   name: 'FuseIcon',
   slot: 'Root',
+  overridesResolver: (props, styles) => {
+    const { ownerState } = props;
+
+    return [
+      styles.root,
+    ];
+  },
 })(({theme, ownerState}) => {
   const fontSize = {
     inherit: theme.typography.pxToRem(24),
@@ -40,9 +47,16 @@ const StyledIcon = styled(Icon, {
   })
 });
 
-const FontAwesomeIcon = styled(Icon, {
+const FontAwesomeIcon = styled(MuiIcon, {
   name: 'FuseIcon',
   slot: 'Root',
+  overridesResolver: (props, styles) => {
+    const { ownerState } = props;
+
+    return [
+      styles.root,
+    ];
+  },
 })(({theme, ownerState}) => {
   const factor = 16.654/100
 
@@ -83,7 +97,7 @@ const Icon = forwardRef((inProps, ref) => {
   const classes = useUtilityClasses(ownerState)
 
   if (!props.children.includes(':')) {
-    return <Icon ref={ref} {...props} />;
+    return <MuiIcon ref={ref} {...props} />;
   }
 
   if (some([
