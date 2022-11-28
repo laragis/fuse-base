@@ -59,6 +59,7 @@ const IconButton = React.forwardRef((props, ref) => {
     sx: pick(props, ['fontSize'])
   }
 
+
   return shownContent && (
     <>
       <Tooltip title={tooltip}>
