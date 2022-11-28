@@ -38,8 +38,8 @@ const Tooltip = forwardRef(function Tooltip(inProps, ref) {
     theme = 'light',
     animation = 'scale',
     trigger = 'mouseenter',
-    disabled = isMobile,
     title,
+    disabled = !title || isMobile,
     ...other
   } = props;
 

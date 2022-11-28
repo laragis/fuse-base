@@ -2,10 +2,11 @@
 import Icon from '../Icon'
 import Tooltip from '../Tooltip'
 import PropTypes from 'prop-types'
-import { forwardRef } from 'react'
+import { forwardRef, isValidElement } from 'react'
 import { styled } from '@mui/system'
 import MuiIconButton from '@mui/material/IconButton/IconButton.js'
 import iconClasses from '@mui/material/Icon/iconClasses.js'
+import { isMobile } from 'react-device-detect'
 
 const sizeFactor = 16.654 / 100
 
@@ -37,14 +38,15 @@ const IconButtonRoot = styled(MuiIconButton, {
 })
 
 const IconButton = forwardRef((inProps, ref) => {
-  const props = inProps
+  const { children, ...props } = inProps
 
   const {
     tooltip,
+    tooltipProps,
     icon,
     size = 'medium',
     iconFontSize = 'inherit',
-    visible = true,
+    visible,
     ...other
   } = props
 
@@ -55,12 +57,21 @@ const IconButton = forwardRef((inProps, ref) => {
 
   if (!visible) return null
 
+  const iconButtonProps = {
+    size,
+    ownerState,
+    ...other
+  }
+
+  const content = (
+    <IconButtonRoot {...iconButtonProps}>
+      {children ?? (isValidElement(icon) ? icon : <Icon fontSize={iconFontSize}>{icon}</Icon>)}
+    </IconButtonRoot>
+  )
 
   return (
-    <Tooltip title={tooltip}>
-      <IconButtonRoot ownerState={ownerState} {...other}>
-        <Icon fontSize={iconFontSize}>{icon}</Icon>
-      </IconButtonRoot>
+    <Tooltip title={tooltip} {...tooltipProps}>
+      {content}
     </Tooltip>
   )
 })
